@@ -4,12 +4,12 @@ import {Bono} from "../../entities/bono-entity";
 import {BonoService} from "../../services/bono.service";
 
 @Component({
-  selector: 'app-view-bono-page',
-  templateUrl: './view-bono-page.component.html',
-  styleUrls: ['./view-bono-page.component.css']
+  selector: 'app-view-bono-flow-page',
+  templateUrl: './view-bono-flow-page.component.html',
+  styleUrls: ['./view-bono-flow-page.component.css']
 })
 
-export class ViewBonoPageComponent implements OnInit {
+export class ViewBonoFlowPageComponent implements OnInit {
 
   ELEMENT_DATA: any;
 
@@ -39,139 +39,6 @@ export class ViewBonoPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-  }
-
-  TIR(l: any) {
-    let res, t, x;
-    res = 1;
-    x = 0;
-    t = 0;
-
-    while (res > 0) {
-      res = l[0];
-
-      if (res < 0) {
-        for (let i = 0, _pj_a = l.length; i < _pj_a; i += 1) {
-          if (i > 0) {
-            res += l[i] / Math.pow(1 + x, i);
-          }
-        }
-      } else {
-        res = -res;
-
-        for (let i = 0, _pj_a = l.length; i < _pj_a; i += 1) {
-          if (i > 0) {
-            res -= l[i] / Math.pow(1 + x, i);
-          }
-        }
-      }
-
-      if (res > 1000) {
-        x += 0.001;
-      } else {
-        if (res > 100) {
-          x += 0.0001;
-        } else {
-          if (res > 10) {
-            x += 1e-05;
-          } else {
-            if (res > 1) {
-              x += 1e-06;
-            } else {
-              if (res > 0.5) {
-                x += 1e-07;
-              } else {
-                if (res > 0.1) {
-                  x += 1e-08;
-                } else {
-                  if (res > 0.01) {
-                    x += 1e-09;
-                  } else {
-                    if (res > 0.001) {
-                      x += 1e-10;
-                    } else {
-                      if (res > 0.0001) {
-                        x += 1e-11;
-                      } else {
-                        x += 1e-12;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    return x;
-  }
-
-  VP(l: any, rate: any) {
-    let r;
-    r = 0;
-
-    for (let i = 0, _pj_a = l.length; i < _pj_a; i += 1) {
-      if (i > 0) {
-        r += l[i] / Math.pow(1 + rate, i);
-      }
-    }
-
-    return r;
-  }
-
-  VNA(l: any, rate: any) {
-    let r, vpt;
-    vpt = this.VP(l, rate);
-    r = vpt + l[0];
-    return r;
-  }
-
-  d_modificada(d: any, rate: any) {
-    let r;
-    r = d / (1 + rate / 100);
-    return r;
-  }
-
-  duracion(faxp: any, fa: any) {
-    let r, t1, t2;
-    t1 = 0;
-    t2 = 0;
-
-    for (let i, _pj_c = 0, _pj_a = faxp, _pj_b = _pj_a.length; _pj_c < _pj_b; _pj_c += 1) {
-      i = _pj_a[_pj_c];
-      t1 += i;
-    }
-
-    for (let i, _pj_c = 0, _pj_a = fa, _pj_b = _pj_a.length; _pj_c < _pj_b; _pj_c += 1) {
-      i = _pj_a[_pj_c];
-      t2 += i;
-    }
-
-    r = t1 / t2;
-    return r;
-  }
-
-  convex(lfa: any, lfc: any, rate:any, dp:any, da:any) {
-    let r, t1, t2;
-    t1 = 0;
-    t2 = 0;
-
-    for (var i, _pj_c = 0, _pj_a = lfa, _pj_b = _pj_a.length; _pj_c < _pj_b; _pj_c += 1) {
-      i = _pj_a[_pj_c];
-      t1 += i;
-    }
-
-    for (let i, _pj_c = 0, _pj_a = lfc, _pj_b = _pj_a.length; _pj_c < _pj_b; _pj_c += 1) {
-      i = _pj_a[_pj_c];
-      t2 += i;
-    }
-
-    r = t2 / (Math.pow(1 + rate, 2) * t1 * Math.pow(da / dp, 2));
-    return r;
   }
 
   flujo_caja(MValorNominal: any, MValorComercial: any, QAniosPago: any, NPeriodoFrecuenciaCuponTipo: any, QDias: any, TipoTasaIsEfectiva: any, NPeriodoCapitalTNTipo: any, PerTasaInteres: any, PerTasaAnualDescuento: any, PerImportRenta: any, DEmision: any, PerPrima: any, PerEstructuracion: any, PerColocacion: any, PerFlotacion: any, PerCavali: any, QPeriodosGracia: any, LInflacionAnual: any) {
@@ -371,7 +238,6 @@ export class ViewBonoPageComponent implements OnInit {
       }
     }
 
-    let d = this.duracion(l_flujo_a_x_p, l_flujo_actual)
     this.ELEMENT_DATA = this.arrays_to_matrix(l_fecha_programada,l_inflacion_periodo,l_plazo_gracia,lbono, lbono_index, lcupon_interes,lcuota,lamortizacion,lprima,lescudo,l_flujo_emisor,l_flujo_emisor_escudo,l_flujo_bonista,l_flujo_actual,l_flujo_a_x_p,l_factor_convex )
 
   }
@@ -394,46 +260,5 @@ export class ViewBonoPageComponent implements OnInit {
 
 }
 
-
-
-/*export interface BonoElement {
-  position: any,
-  fecha_programada: any,
-  inflacion_periodo: any,
-  plazo_gracia: any,
-  bono: any,
-  bono_indexado: any,
-  cupon: any,
-  cuota: any,
-  amortizacion: any,
-  prima: any,
-  escudo: any,
-  flujo_emisor: any,
-  flujo_emisor_escudo: any,
-  flujo_bonista: any,
-  flujo_actual: any,
-  flujo_actual_plazo: any,
-  factor_convexidad: any
-}*/
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA2: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 

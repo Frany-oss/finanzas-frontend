@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ViewBonoPageComponent } from './views/view-bono-page/view-bono-page.component';
+import { ViewBonoFlowPageComponent } from './views/view-bono-flow-page/view-bono-flow-page.component';
 import {ViewResultsPageComponent} from "./views/view-results-page/view-results-page.component";
 
 const routes: Routes = [
-  {path: 'view-bono/:id', component: ViewBonoPageComponent},
-  {path: 'view-bono-results', component: ViewResultsPageComponent},
 
-
+  {path: 'view-bono-results/:id', component: ViewResultsPageComponent},
+  {path: 'view-bono-results/:id/view-bono-flow', component: ViewBonoFlowPageComponent},
 
 ];
 

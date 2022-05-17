@@ -6,7 +6,6 @@
 
   <div id="container-main-left">
     <mat-card class="example-card" >
-
       <mat-card-title class="example-card-title" >
         Precio Actual y Utilidad
       </mat-card-title>
@@ -15,12 +14,12 @@
       <mat-card-content class="example-card-content" >
         <div class="resultados">
         <p>Precio Actual:</p>
-        <p>S/3,683.61</p>
+        <p>{{this.precio_actual}}</p>
         </div>
 
         <div class="resultados">
         <p>Utilidad / Pérdida:</p>
-        <p>S/572.61</p>
+        <p>{{this.utilidad_perdida}}</p>
         </div>
       </mat-card-content>
 
@@ -35,47 +34,47 @@
       <mat-card-content class="example-card-content" >
         <div class="resultados">
           <p>Frecuencia del cupón:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.frecuencia_cupon}}</p>
         </div>
 
-        <div class="resultados">
+        <div *ngIf="!bonoData.TipoTasaIsEfectiva" class="resultados">
           <p>Días Capitalización:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.dias_capitalizacion}}</p>
         </div>
 
         <div class="resultados">
           <p>N° Periodos por Año:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.periodos_anual}}</p>
         </div>
 
         <div class="resultados">
           <p>N° Total de Periodos:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.total_periodos}}</p>
         </div>
 
         <div class="resultados">
           <p>Tasa Efectiva Anual:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.tasa_anual}}</p>
         </div>
 
         <div class="resultados">
           <p>Tasa Efectiva Mensual:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.tasa_periodo}}</p>
         </div>
 
         <div class="resultados">
           <p>COK Mensual:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.cok_periodo}}</p>
         </div>
 
         <div class="resultados">
           <p>Costes Iniciales Emisor:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.costes_iniciales_emisor}}</p>
         </div>
 
         <div class="resultados">
           <p>Costos Iniciales Bonista:</p>
-          <p>S/3,683.61</p>
+          <p>{{this.costes_iniciales_bonista}}</p>
         </div>
       </mat-card-content>
     </mat-card>
@@ -97,22 +96,22 @@
      <mat-card-content class="example-card-content" >
        <div class="resultados">
          <p>Duración:</p>
-         <p >S/3,683.61</p>
+         <p >{{this.duracion}}</p>
        </div>
 
        <div class="resultados">
          <p>Convexidad:</p>
-         <p>S/572.61</p>
+         <p>{{this.convexidad}}</p>
        </div>
 
        <div class="resultados">
          <p>Total :</p>
-         <p>S/572.61</p>
+         <p>{{this.total}}</p>
        </div>
 
        <div class="resultados">
          <p>Duración modificada:</p>
-         <p>S/572.61</p>
+         <p>{{this.duracion_modificada}}</p>
        </div>
      </mat-card-content>
 
@@ -127,17 +126,17 @@
      <mat-card-content class="example-card-content" >
        <div class="resultados">
          <p>TCEA Emisor:</p>
-         <p>S/3,683.61</p>
+         <p>{{this.tcea_emisor}}</p>
        </div>
 
        <div class="resultados">
          <p>TCEA Emisor c/Escudo:</p>
-         <p>S/3,683.61</p>
+         <p>{{this.tcea_emisor_escudo}}</p>
        </div>
 
        <div class="resultados">
          <p>TREA Bonista:</p>
-         <p>S/3,683.61</p>
+         <p>{{this.trea_bonista}}</p>
        </div>
 
      </mat-card-content>
@@ -145,9 +144,8 @@
 
  </div>
   <div id="container-main-right-buttons">
-    <button mat-raised-button color="warn" class="container-main-right-buttons-conf"  style="background-color: black;">Ver flujo detallado</button>
-    <button mat-raised-button color="warn" class="container-main-right-buttons-conf" style="background-color: black;">Aceptar</button>
-
+    <button routerLink='./view-bono-flow' mat-raised-button color="warn" class="container-main-right-buttons-conf"  style="background-color: black;">Ver flujo detallado</button>
+    <button routerLink='..' mat-raised-button color="warn" class="container-main-right-buttons-conf" style="background-color: black;">Aceptar</button>
   </div>
 
 </div>
