@@ -13,11 +13,13 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTableModule} from "@angular/material/table";
 import {HttpClientModule} from "@angular/common/http";
+import { ViewResultsPageComponent } from './views/view-results-page/view-results-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewBonoPageComponent,
+    ViewResultsPageComponent,
   ],
   imports: [
     BrowserModule,
