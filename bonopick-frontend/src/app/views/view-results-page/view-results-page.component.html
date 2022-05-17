@@ -1,0 +1,157 @@
+<p>GAAAAAAAAAA</p>
+<div id="container">
+
+  <div id="container-header">Resultados de:</div>
+<div id="container-main">
+
+  <div id="container-main-left">
+    <mat-card class="example-card" >
+      <mat-card-title class="example-card-title" >
+        Precio Actual y Utilidad
+      </mat-card-title>
+
+
+      <mat-card-content class="example-card-content" >
+        <div class="resultados">
+        <p>Precio Actual:</p>
+        <p>{{this.precio_actual}}</p>
+        </div>
+
+        <div class="resultados">
+        <p>Utilidad / Pérdida:</p>
+        <p>{{this.utilidad_perdida}}</p>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="example-card" >
+      <mat-card-title class="example-card-title">
+        Estructuración del Bono
+      </mat-card-title>
+
+
+      <mat-card-content class="example-card-content" >
+        <div class="resultados">
+          <p>Frecuencia del cupón:</p>
+          <p>{{this.frecuencia_cupon}}</p>
+        </div>
+
+        <div *ngIf="!bonoData.TipoTasaIsEfectiva" class="resultados">
+          <p>Días Capitalización:</p>
+          <p>{{this.dias_capitalizacion}}</p>
+        </div>
+
+        <div class="resultados">
+          <p>N° Periodos por Año:</p>
+          <p>{{this.periodos_anual}}</p>
+        </div>
+
+        <div class="resultados">
+          <p>N° Total de Periodos:</p>
+          <p>{{this.total_periodos}}</p>
+        </div>
+
+        <div class="resultados">
+          <p>Tasa Efectiva Anual:</p>
+          <p>{{this.tasa_anual}}</p>
+        </div>
+
+        <div class="resultados">
+          <p>Tasa Efectiva Mensual:</p>
+          <p>{{this.tasa_periodo}}</p>
+        </div>
+
+        <div class="resultados">
+          <p>COK Mensual:</p>
+          <p>{{this.cok_periodo}}</p>
+        </div>
+
+        <div class="resultados">
+          <p>Costes Iniciales Emisor:</p>
+          <p>{{this.costes_iniciales_emisor}}</p>
+        </div>
+
+        <div class="resultados">
+          <p>Costos Iniciales Bonista:</p>
+          <p>{{this.costes_iniciales_bonista}}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+
+<div id="container-main-right">
+
+ <div id="container-main-right-cards">
+
+   <mat-card class="example-card" >
+
+     <mat-card-title class="example-card-title" >
+       Ratios de decisión
+     </mat-card-title>
+
+
+     <mat-card-content class="example-card-content" >
+       <div class="resultados">
+         <p>Duración:</p>
+         <p >{{this.duracion}}</p>
+       </div>
+
+       <div class="resultados">
+         <p>Convexidad:</p>
+         <p>{{this.convexidad}}</p>
+       </div>
+
+       <div class="resultados">
+         <p>Total :</p>
+         <p>{{this.total}}</p>
+       </div>
+
+       <div class="resultados">
+         <p>Duración modificada:</p>
+         <p>{{this.duracion_modificada}}</p>
+       </div>
+     </mat-card-content>
+
+   </mat-card>
+
+   <mat-card class="example-card" >
+     <mat-card-title class="example-card-title">
+       Indicadores de Rentabilidad
+     </mat-card-title>
+
+
+     <mat-card-content class="example-card-content" >
+       <div class="resultados">
+         <p>TCEA Emisor:</p>
+         <p>{{this.tcea_emisor}}</p>
+       </div>
+
+       <div class="resultados">
+         <p>TCEA Emisor c/Escudo:</p>
+         <p>{{this.tcea_emisor_escudo}}</p>
+       </div>
+
+       <div class="resultados">
+         <p>TREA Bonista:</p>
+         <p>{{this.trea_bonista}}</p>
+       </div>
+
+     </mat-card-content>
+   </mat-card>
+
+ </div>
+  <div id="container-main-right-buttons">
+    <button routerLink='./view-bono-flow' mat-raised-button color="warn" class="container-main-right-buttons-conf"  style="background-color: black;">Ver flujo detallado</button>
+    <button routerLink='..' mat-raised-button color="warn" class="container-main-right-buttons-conf" style="background-color: black;">Aceptar</button>
+  </div>
+
+</div>
+
+
+</div>
+
+
+</div>

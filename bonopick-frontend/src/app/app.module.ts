@@ -4,17 +4,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BonoViewPageComponent } from './views/bono-view-page/bono-view-page.component';
+import { ViewBonoFlowPageComponent } from './views/view-bono-flow-page/view-bono-flow-page.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTableModule} from "@angular/material/table";
+import {HttpClientModule} from "@angular/common/http";
+import { ViewResultsPageComponent } from './views/view-results-page/view-results-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BonoViewPageComponent
+    ViewBonoFlowPageComponent,
+    ViewResultsPageComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatTooltipModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

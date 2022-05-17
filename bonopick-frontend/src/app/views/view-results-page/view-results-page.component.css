@@ -1,0 +1,132 @@
+.example-card {
+  max-width: 600px;
+border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #57B6FF;
+  text-align: center;
+  margin-bottom: 1rem;
+  align-items: center;
+  transition:0.5s;
+}
+
+
+.example-card:hover{
+  transition:0.5s;
+  transform:scale(1.0);
+  box-shadow: 0.5px 5px 15px;
+}
+
+
+
+
+.example-card-title{
+  font-weight: bold ;
+  Font-family: "Source Code Pro";
+  Font-size: 18px;
+  Line-height: 23px;
+  Line-height: 100%;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+
+
+
+#container{
+
+  display: flex;
+  justify-content: space-between;
+flex-direction: column;
+padding: 2rem 6rem 6rem 6rem ;
+  max-width: 65%;
+}
+
+#container-main{
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+}
+
+#container-header{
+ font-family: Inter;
+Font-size: 24px;
+Line-height: 22px;
+Line-height: 76%;
+  Align: Center;
+  Vertical-align: Center;
+
+}
+
+#container-main-left{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+align-items: center;
+  flex-wrap: wrap;
+}
+#container-main-right{
+  display: flex;
+
+  flex-direction: column;
+  max-height: 200%;
+}
+
+#container-main-right-cards{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
+.resultados{
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between ;
+  Font-family: "Source Code Pro";
+  Font-style: normal;
+Font-size: 13px;
+Line-height: 12px;
+Line-height: 73%;
+}
+.example-card-content{
+background-color: #C3EE65;
+  border-radius: 10px;
+width: 96%;
+}
+
+p{
+  max-width: 20rem;
+  margin: 0px;
+}
+
+#container-main-right-buttons{
+padding-top: 7rem;
+  display: flex;
+justify-content: space-between;
+
+}
+
+@media (max-width:929px ) {
+
+#container-main{
+  display: flex;
+  justify-content: center;
+
+}
+
+}
+.container-main-right-buttons-conf{
+  transition:0.5s;
+
+}
+.container-main-right-buttons-conf:hover{
+  transition:0.5s;
+  transform:scale(1.1);
+  box-shadow: 1.5px 5px 15px;
+
+}

@@ -1,0 +1,10 @@
+table {
+  width: 100%;
+}
+
+#container-main-right-buttons{
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+
+}
