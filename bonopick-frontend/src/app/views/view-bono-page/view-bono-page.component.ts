@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {Bono} from "../../entities/bono-entity";
+import {BonoService} from "../../services/bono.service";
 
 @Component({
   selector: 'app-view-bono-page',
@@ -14,17 +17,30 @@ export class ViewBonoPageComponent implements OnInit {
 
   dataSource: any;
 
-  constructor() { }
+  bonoData: any;
+
+  bonoId: any;
+
+  constructor(private bonoService: BonoService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.bonoId = params['id']
+      bonoService.getBonoById(this.bonoId).subscribe(data => {
+        this.bonoData = data;
+        let f_e = new Date(2022, 5, 1) //DATO
+
+        //CASO 1
+        //print("CASO 1 \n")
+        let l_i_anual = this.bonoData.LInflacionAnual //DATO - 1 por Año
+        this.flujo_caja(this.bonoData.MValorNominal, this.bonoData.MValorComercial, this.bonoData.QAniosPago, this.bonoData.NPeriodoFrecuenciaCuponTipo, this.bonoData.QDias, this.bonoData.TipoTasaIsEfectiva, this.bonoData.NPeriodoCapitalTNTipo, this.bonoData.PerTasaInteres, this.bonoData.PerTasaAnualDescuento, this.bonoData.PerImportRenta, new Date(this.bonoData.DEmision), this.bonoData.PerPrima, this.bonoData.PerEstructuracion, this.bonoData.PerColocacion, this.bonoData.PerFlotacion,this.bonoData.PerCavali, this.bonoData.QPeriodosGracia, l_i_anual)
+        this.dataSource = this.ELEMENT_DATA;
+      })
+
+    });
+  }
 
   ngOnInit(): void {
 
-    let f_e = new Date(2022, 5, 1) //DATO
 
-    //CASO 1
-    //print("CASO 1 \n")
-    let l_i_anual = [0.02, 0.02, 0.02, 0.02, 0.02, 0.02] //DATO - 1 por Año
-    this.flujo_caja(2000, 2050, 6, 4, 360, true, 3, 0.10, 0.050, 0.3, f_e, 0.02, 0.02, 0.02, 0.02,0.02, 5, l_i_anual)
-    this.dataSource = this.ELEMENT_DATA;
   }
 
   TIR(l: any) {
@@ -380,7 +396,7 @@ export class ViewBonoPageComponent implements OnInit {
 
 
 
-export interface BonoElement {
+/*export interface BonoElement {
   position: any,
   fecha_programada: any,
   inflacion_periodo: any,
@@ -398,8 +414,7 @@ export interface BonoElement {
   flujo_actual: any,
   flujo_actual_plazo: any,
   factor_convexidad: any
-
-}
+}*/
 
 export interface PeriodicElement {
   name: string;

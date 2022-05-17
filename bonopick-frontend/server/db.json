@@ -1,0 +1,47 @@
+{
+  "bonos": [
+    {
+      "id": 1,
+      "MValorNominal": 2000,
+      "MValorComercial": 2050,
+      "QAniosPago": 6,
+      "NPeriodoFrecuenciaCuponTipo": 4,
+      "QDias": 360,
+      "TipoTasaIsEfectiva": true,
+      "NPeriodoCapitalTNTipo": 3,
+      "PerTasaInteres": 0.10,
+      "PerTasaAnualDescuento": 0.050,
+      "PerImportRenta": 0.3,
+      "DEmision": "2022-05-01",
+      "PerPrima": 0.02,
+      "PerEstructuracion": 0.02,
+      "PerColocacion": 0.02,
+      "PerFlotacion": 0.02,
+      "PerCavali": 0.02,
+      "QPeriodosGracia": 5,
+      "LInflacionAnual": [0.02, 0.02, 0.02, 0.02, 0.02, 0.02]
+    },
+    {
+      "id": 2,
+      "MValorNominal": 3000,
+      "MValorComercial": 3050,
+      "QAniosPago": 2,
+      "NPeriodoFrecuenciaCuponTipo": 2,
+      "QDias": 360,
+      "TipoTasaIsEfectiva": false,
+      "NPeriodoCapitalTNTipo": 2,
+      "PerTasaInteres": 0.075,
+      "PerTasaAnualDescuento": 0.060,
+      "PerImportRenta": 0.25,
+      "DEmision": "2022-05-01",
+      "PerPrima": 0.01,
+      "PerEstructuracion": 0.01,
+      "PerColocacion": 0.01,
+      "PerFlotacion": 0.01,
+      "PerCavali": 0.01,
+      "QPeriodosGracia": 1,
+      "LInflacionAnual": [0.03, 0.03]
+    }
+
+  ]
+}
