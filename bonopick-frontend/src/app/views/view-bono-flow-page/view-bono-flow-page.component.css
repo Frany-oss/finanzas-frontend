@@ -6,5 +6,10 @@ table {
   padding-top: 2rem;
   display: flex;
   justify-content: center;
+}
 
+.example-container {
+  max-height: 80vh;
+  max-width: 100%;
+  overflow: auto;
 }

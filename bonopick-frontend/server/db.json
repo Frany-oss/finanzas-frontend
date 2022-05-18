@@ -2,6 +2,8 @@
   "bonos": [
     {
       "id": 1,
+      "userId": 1,
+      "name": "Caso Prueba 1",
       "MValorNominal": 2000,
       "MValorComercial": 2050,
       "QAniosPago": 6,
@@ -23,6 +25,8 @@
     },
     {
       "id": 2,
+      "userId": 1,
+      "name": "Caso Prueba 2",
       "MValorNominal": 3000,
       "MValorComercial": 3050,
       "QAniosPago": 2,

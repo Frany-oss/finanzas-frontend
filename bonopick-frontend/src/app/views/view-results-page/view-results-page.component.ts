@@ -49,7 +49,6 @@ export class ViewResultsPageComponent implements OnInit {
         let l_i_anual = this.bonoData.LInflacionAnual //DATO - 1 por Año
         this.flujo_caja(this.bonoData.MValorNominal, this.bonoData.MValorComercial, this.bonoData.QAniosPago, this.bonoData.NPeriodoFrecuenciaCuponTipo, this.bonoData.QDias, this.bonoData.TipoTasaIsEfectiva, this.bonoData.NPeriodoCapitalTNTipo, this.bonoData.PerTasaInteres, this.bonoData.PerTasaAnualDescuento, this.bonoData.PerImportRenta, new Date(this.bonoData.DEmision), this.bonoData.PerPrima, this.bonoData.PerEstructuracion, this.bonoData.PerColocacion, this.bonoData.PerFlotacion,this.bonoData.PerCavali, this.bonoData.QPeriodosGracia, l_i_anual)
       })
-
     });
   }
 

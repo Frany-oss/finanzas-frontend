@@ -28,6 +28,9 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatOptionModule } from "@angular/material/core";
 import {MatNativeDateModule} from "@angular/material/core";
+import { ViewBonoHistoryPageComponent } from './views/view-bono-history-page/view-bono-history-page.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 
 
 @NgModule({
@@ -38,6 +41,7 @@ import {MatNativeDateModule} from "@angular/material/core";
     SidenavComponent,
     ViewRegisterBonoComponent,
     ViewHomePageComponent,
+    ViewBonoHistoryPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     ReactiveFormsModule,
     MatOptionModule,
     MatNativeDateModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
