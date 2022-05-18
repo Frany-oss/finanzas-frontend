@@ -31,6 +31,8 @@ import {MatNativeDateModule} from "@angular/material/core";
 import { ViewBonoHistoryPageComponent } from './views/view-bono-history-page/view-bono-history-page.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
+import { RegisterAnualInflationDialogComponent } from './components/register-anual-inflation-dialog/register-anual-inflation-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import {MatSortModule} from "@angular/material/sort";
     ViewRegisterBonoComponent,
     ViewHomePageComponent,
     ViewBonoHistoryPageComponent,
+    RegisterAnualInflationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import {MatSortModule} from "@angular/material/sort";
     MatNativeDateModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

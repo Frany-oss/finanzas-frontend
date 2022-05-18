@@ -1,0 +1,8 @@
+<p>gato</p>
+<div *ngFor="let control of skills.controls; index as i">
+  <mat-form-field appearance="fill">
+    <mat-label>Año {{i+1}}</mat-label>
+    <input matInput [formControl]="toControl(skills.controls[i])" />
+  </mat-form-field>
+
+</div>
