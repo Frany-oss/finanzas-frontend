@@ -1,0 +1,112 @@
+<h1>Ingrese los datos correspondientes:</h1>
+<h2>Datos del Bono: </h2>
+<div class="box">
+  <div class="izq">
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Valor Nominal</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Valor Comercial</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </p>
+
+    <p class="anios">
+      <mat-form-field appearance="outline">
+        <mat-label>N° de Años</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+      <mat-button-toggle class="btn">Inflación Anual</mat-button-toggle>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Frecuencia del Cupón</mat-label>
+        <mat-select>
+          <mat-option value="Mensual">Mensual</mat-option>
+          <mat-option value="Bimestral">Bimestral</mat-option>
+          <mat-option value="Trimestral">Trimestral</mat-option>
+          <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
+          <mat-option value="Semestral">Semestral</mat-option>
+          <mat-option value="Anual">Anual</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Dia x Año</mat-label>
+        <mat-select>
+          <mat-option value="360">360</mat-option>
+          <mat-option value="365">365</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tipo de Tasa de Interés</mat-label>
+        <mat-select>
+          <mat-option value="Nominal">Nominal</mat-option>
+          <mat-option value="Efectiva">Efectiva</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+  </div>
+  <div class="der">
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Capitalización</mat-label>
+        <mat-select>
+          <mat-option value="Diaria">Diaria</mat-option>
+          <mat-option value="Semanal">Semanal</mat-option>
+          <mat-option value="Quincenal">Quincenal</mat-option>
+          <mat-option value="Mensual">Mensual</mat-option>
+          <mat-option value="Bimestral">Bimestral</mat-option>
+          <mat-option value="Trimestral">Trimestral</mat-option>
+          <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
+          <mat-option value="Semestral">Semestral</mat-option>
+          <mat-option value="Anual">Anual</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tipo de Tasa de Interés (%)</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tasa Anual de Descuento (%)</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Imp. a la Renta (%)</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Fecha de Emisión</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tipo de Moneda</mat-label>
+        <input matInput placeholder="">
+      </mat-form-field>
+    </p>
+  </div>
+</div>
+<div class="next">
+  <mat-button-toggle class="btn-next">Siguiente</mat-button-toggle>
+</div>

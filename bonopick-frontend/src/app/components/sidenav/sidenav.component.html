@@ -1,0 +1,33 @@
+<mat-sidenav-container>
+  <mat-sidenav opened="true" disableClose="true">
+    <div class="box wrapper">
+      <div class="superior">
+        <button mat-button class="menu-button" routerLink=''>
+          <mat-icon>home</mat-icon>
+          <span>Inicio</span>
+        </button>
+        <button mat-button class="menu-button" routerLink=''>
+          <mat-icon>description</mat-icon>
+          <span>Historial</span>
+        </button>
+      </div>
+      <div class="inferior">
+        <img src="assets/logo-celeste.png">
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button">
+          <mat-icon>account_circle</mat-icon>
+          <span>Usuario</span>
+        </button>
+        <button mat-button class="menu-button">
+          <span class="material-icons">logout</span>
+          <span>Cerrar Sesión</span>
+        </button>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
