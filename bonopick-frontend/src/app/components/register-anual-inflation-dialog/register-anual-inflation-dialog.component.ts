@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormControl, FormGroup} from "@angular/forms";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register-anual-inflation-dialog',
@@ -13,6 +13,8 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 export class RegisterAnualInflationDialogComponent implements OnInit {
 
   skills = new FormArray([]);
+  n = 0;
+  cons_rate: number = 0 ;
 
   toControl(absCtrl: AbstractControl): FormControl {
     const ctrl = absCtrl as FormControl;
@@ -21,13 +23,29 @@ export class RegisterAnualInflationDialogComponent implements OnInit {
   }
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    let n= data.c_a;
-    for(let i=0;i<n;i++) this.skills.push(new FormControl(''));
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<RegisterAnualInflationDialogComponent>) {
+    this.n= data.c_a;
+    for(let i=0;i<this.n;i++) this.skills.push(new FormControl('0'));
   }
 
   ngOnInit(): void {
 
+  }
+
+  set_const_rate(c : number) {
+    for (let i=0;i<this.n;i++){
+      this.skills.controls[i].setValue(c);
+    }
+  }
+
+  send_data(){
+    let descuentos_anio = new Array(this.n)
+
+    for (let i=0;i<this.n;i++){
+      descuentos_anio[i] = this.skills.controls[i].value;
+    }
+    console.log(`Dialog result: ${descuentos_anio}`);
+    this.dialogRef.close({data: descuentos_anio});
   }
 
 

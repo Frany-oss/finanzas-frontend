@@ -1,112 +1,191 @@
-<h1>Ingrese los datos correspondientes:</h1>
-<h2>Datos del Bono: </h2>
-<div class="box">
-  <div class="izq">
-    <p>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Valor Nominal</mat-label>
-        <input matInput placeholder="">
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Valor Comercial</mat-label>
-        <input matInput placeholder="">
-      </mat-form-field>
-    </p>
 
-    <p class="anios">
-      <mat-form-field appearance="outline">
-        <mat-label>N° de Años</mat-label>
-        <input matInput placeholder="">
+  <div *ngIf="this.pag == 1" class="pag1">
+  <h1>Ingrese los datos correspondientes:</h1>
+  <h2>Datos del Bono: </h2>
+
+
+  <mat-grid-list cols="2" rowHeight="7:1">
+
+
+    <mat-grid-tile>
+      <mat-form-field  class="full-width" appearance="outline">
+        <mat-label>Valor Nominal</mat-label>
+        <input  matInput required [(ngModel)]="bonoData.MValorNominal"  placeholder="">
       </mat-form-field>
-      <mat-button-toggle (click)="openDialog()" class="btn">Inflación Anual</mat-button-toggle>
-    </p>
-    <p>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
       <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Frecuencia del Cupón</mat-label>
-        <mat-select>
-          <mat-option value="Mensual">Mensual</mat-option>
-          <mat-option value="Bimestral">Bimestral</mat-option>
-          <mat-option value="Trimestral">Trimestral</mat-option>
-          <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
-          <mat-option value="Semestral">Semestral</mat-option>
-          <mat-option value="Anual">Anual</mat-option>
+        <mat-label>Capitalización</mat-label>
+        <mat-select [(ngModel)]="bonoData.NPeriodoCapitalTNTipo">
+          <mat-option value="0">Diaria</mat-option>
+          <mat-option value="1">Semanal</mat-option>
+          <mat-option value="2">Quincenal</mat-option>
+          <mat-option value="3">Mensual</mat-option>
+          <mat-option value="4">Bimestral</mat-option>
+          <mat-option value="5">Trimestral</mat-option>
+          <mat-option value="6">Cuatrimestral</mat-option>
+          <mat-option value="7">Semestral</mat-option>
+          <mat-option value="8">Anual</mat-option>
         </mat-select>
       </mat-form-field>
-    </p>
-    <p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label >Valor Comercial</mat-label>
+        <input matInput [(ngModel)]="bonoData.MValorComercial"  placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tasa de Interés (%)</mat-label>
+        <input matInput [(ngModel)]="bonoData.PerTasaInteres" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+      <div class="full-width doble-mat" >
+        <mat-form-field appearance="outline">
+          <mat-label>N° de Años</mat-label>
+          <input matInput [(ngModel)]="bonoData.QAniosPago" placeholder="">
+        </mat-form-field>
+        <button mat-button  (click)="openDialog()" class="btn">Inflación Anual</button>
+      </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tasa Anual de Descuento (%)</mat-label>
+        <input matInput [(ngModel)]="bonoData.PerTasaAnualDescuento" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Frecuencia del Cupón</mat-label>
+        <mat-select [(ngModel)]="bonoData.NPeriodoFrecuenciaCuponTipo">
+          <mat-option value="0">Mensual</mat-option>
+          <mat-option value="1">Bimestral</mat-option>
+          <mat-option value="2">Trimestral</mat-option>
+          <mat-option value="3">Cuatrimestral</mat-option>
+          <mat-option value="4">Semestral</mat-option>
+          <mat-option value="5">Anual</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Imp. a la Renta (%)</mat-label>
+        <input [(ngModel)]="bonoData.PerImportRenta" matInput placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Dia x Año</mat-label>
-        <mat-select>
+        <mat-select [(ngModel)]="bonoData.QDias">
           <mat-option value="360">360</mat-option>
           <mat-option value="365">365</mat-option>
         </mat-select>
       </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Tipo de Tasa de Interés</mat-label>
-        <mat-select>
-          <mat-option value="Nominal">Nominal</mat-option>
-          <mat-option value="Efectiva">Efectiva</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
-  </div>
-  <div class="der">
-    <p>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Capitalización</mat-label>
-        <mat-select>
-          <mat-option value="Diaria">Diaria</mat-option>
-          <mat-option value="Semanal">Semanal</mat-option>
-          <mat-option value="Quincenal">Quincenal</mat-option>
-          <mat-option value="Mensual">Mensual</mat-option>
-          <mat-option value="Bimestral">Bimestral</mat-option>
-          <mat-option value="Trimestral">Trimestral</mat-option>
-          <mat-option value="Cuatrimestral">Cuatrimestral</mat-option>
-          <mat-option value="Semestral">Semestral</mat-option>
-          <mat-option value="Anual">Anual</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Tipo de Tasa de Interés (%)</mat-label>
-        <input matInput placeholder="">
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Tasa Anual de Descuento (%)</mat-label>
-        <input matInput placeholder="">
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Imp. a la Renta (%)</mat-label>
-        <input matInput placeholder="">
-      </mat-form-field>
-    </p>
-    <p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Fecha de Emisión</mat-label>
-        <input matInput [matDatepicker]="picker">
+        <input matInput [(ngModel)]="bonoData.DEmision" [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker">
           <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
         </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    </p>
-    <p>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tipo de Tasa de Interés</mat-label>
+        <mat-select [(ngModel)]="bonoData.TipoTasaIsEfectiva">
+          <mat-option value="False">Nominal</mat-option>
+          <mat-option value="True">Efectiva</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Tipo de Moneda</mat-label>
         <input matInput placeholder="">
       </mat-form-field>
-    </p>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <div class="next">
+    <button mat-button (click)="changePag(2)" class="btn-next">Siguiente</button>
   </div>
-</div>
-<div class="next">
-  <mat-button-toggle class="btn-next">Siguiente</mat-button-toggle>
-</div>
+
+  </div>
+
+  <div *ngIf="this.pag == 2" class="pag2">
+  <h1>Ingrese los datos correspondientes:</h1>
+  <h2>Datos del Bono: </h2>
+  <mat-grid-list cols="2" rowHeight="7:1">
+
+    <mat-grid-tile>
+      <mat-form-field  class="full-width" appearance="outline">
+        <mat-label>Prima (%)</mat-label>
+        <input matInput [(ngModel)]="bonoData.PerPrima" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field  class="full-width" appearance="outline">
+        <mat-label>Colocación (%)</mat-label>
+        <input matInput [(ngModel)]="bonoData.PerColocacion" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field  class="full-width" appearance="outline">
+        <mat-label>Estructuración (%)</mat-label>
+        <input matInput [(ngModel)]="bonoData.PerEstructuracion" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field  class="full-width" appearance="outline">
+        <mat-label>CAVALI (%)</mat-label>
+        <input matInput [(ngModel)]="bonoData.PerCavali" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field  class="full-width" appearance="outline">
+        <mat-label>Flotacion (%)</mat-label>
+        <input matInput [(ngModel)]="bonoData.PerFlotacion" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field  class="full-width" appearance="outline">
+        <mat-label>Plazo de Gracia (En Periodos)</mat-label>
+        <input  matInput [(ngModel)]="bonoData.QPeriodosGracia" placeholder="">
+      </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  <div class="next">
+    <button mat-button (click)="changePag(1)" class="btn-next">Volver</button>
+    <button mat-button (click)="postBono()" class="btn-next">Registrar Bono</button>
+  </div>
+  </div>
+
+
+
+
+

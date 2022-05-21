@@ -1,8 +1,40 @@
-<p>gato</p>
-<div *ngFor="let control of skills.controls; index as i">
-  <mat-form-field appearance="fill">
-    <mat-label>Año {{i+1}}</mat-label>
-    <input matInput [formControl]="toControl(skills.controls[i])" />
-  </mat-form-field>
 
-</div>
+
+<mat-dialog-content style="width: 10vw; min-width: 450px">
+
+  <h1 style="padding-bottom: 0px; margin-bottom: 0px">Inflación Constante</h1>
+  <h4>(igual para todos los años)</h4>
+
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Inflación Constante (%)</mat-label>
+        <input matInput [(ngModel)]="cons_rate"/>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button (click)="set_const_rate(cons_rate)" class="btn" mat-flat-button color="primary" >Aplicar</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <h1>Ingresar la inflación de cada año</h1>
+
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <div *ngFor="let control of skills.controls; index as i">
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>Inflación Año {{i+1}} (%)</mat-label>
+          <input matInput [formControl]="toControl(skills.controls[i])" />
+        </mat-form-field>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button  (click)="send_data()" cdkFocusInitial>Aceptar</button>
+</mat-dialog-actions>
+
+
+

@@ -33,6 +33,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import { RegisterAnualInflationDialogComponent } from './components/register-anual-inflation-dialog/register-anual-inflation-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -46,33 +47,34 @@ import {MatDialogModule} from "@angular/material/dialog";
     ViewBonoHistoryPageComponent,
     RegisterAnualInflationDialogComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatTooltipModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatTableModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatButtonToggleModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatOptionModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatTooltipModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatTableModule,
+        MatDividerModule,
+        MatSidenavModule,
+        MatFormFieldModule,
+        MatButtonToggleModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatOptionModule,
+        MatNativeDateModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatDialogModule,
+        MatGridListModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

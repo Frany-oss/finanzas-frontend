@@ -38,6 +38,13 @@ export class BonoService {
         catchError(this.handleError));
   }
 
+  postBono(item: any): Observable<Bono> {
+    return this.http.post<Bono>(`${this.baseURL}`, JSON.stringify(item), this.serviceConfiguration.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+
   getBonos(): Observable<Bono[]> {
 
     return this.http.get<Bono[]>(`${this.baseURL}`, this.serviceConfiguration.httpOptions)

@@ -1,5 +1,45 @@
-h1,h2{
+/*h1,h2{
   margin-left: 1rem;
+}
+
+
+
+
+
+mat-form-field{
+  height: 56px;
+}
+
+
+.box{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.izq{
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.der{
+  margin-right: 1rem;
+  flex-direction: column;
+}*/
+
+.anios{
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
+
+.btn{
+  height: 43px;
+  width: 176px;
+  margin-left: 1rem;
+  background: black;
+  color: white;
 }
 
 .next{
@@ -15,42 +55,8 @@ h1,h2{
   color: white;
 }
 
-.anios{
-  display: flex;
-  margin-left: 1rem;
-  margin-top: 2rem;
-}
-
-mat-form-field{
-  height: 56px;
-}
-
 .full-width{
   margin-left: 1rem;
   margin-top: 1rem;
   width:400px !important;
-}
-
-.btn{
-  margin-top: 4px;
-  height: 50px;
-  width: 176px;
-  margin-left: 1rem;
-  background: black;
-  color: white;
-}
-.box{
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem;
-}
-
-.izq{
-  flex-direction: column;
-  margin-left: 1rem;
-}
-
-.der{
-  margin-right: 1rem;
-  flex-direction: column;
 }
