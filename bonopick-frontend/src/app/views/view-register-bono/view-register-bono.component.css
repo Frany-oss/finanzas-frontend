@@ -49,8 +49,22 @@ mat-form-field{
 
 .next{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media (max-width:1120px ) {
+  .next {
+flex-direction: column;
+  }
+
+  .next button{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 23.9rem;
+  }
 }
 
 .btn-next{

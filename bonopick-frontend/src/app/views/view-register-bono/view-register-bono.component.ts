@@ -26,11 +26,12 @@ export class ViewRegisterBonoComponent implements OnInit {
 
 
 bonoForm: FormGroup | any
+   breakpoint: number;
 
 
 
   constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router) {
-
+this.breakpoint=0;
     this.cant_a = 10
     this.pag = 1
     this.bonoData = {
@@ -55,6 +56,8 @@ bonoForm: FormGroup | any
   }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 1120) ? 1 : 2;
+
    this.bonoForm =  new FormGroup({
       DEmision: new FormControl('', [Validators.required]),
       MValorNominal: new FormControl('', [Validators.required,Validators.min(0)]),
@@ -74,26 +77,15 @@ bonoForm: FormGroup | any
       QPeriodosGracia: new FormControl('',[Validators.required, Validators.min(0)]),
       TipoTasaIsEfectiva: new FormControl('',[Validators.required])
 
-     /*DEmision: new FormControl('', ),
-     MValorNominal: new FormControl('', ),
-     MValorComercial: new FormControl('', ),
-     NPeriodoCapitalTNTipo: new FormControl('', ),
-     NPeriodoFrecuenciaCuponTipo: new FormControl('',),
-     PerCavali: new FormControl('', ),
-     PerColocacion: new FormControl('',),
-     PerEstructuracion: new FormControl('', ),
-     PerFlotacion: new FormControl('',),
-     PerImportRenta: new FormControl('', ),
-     PerPrima: new FormControl('',),
-     PerTasaAnualDescuento: new FormControl('', ),
-     PerTasaInteres: new FormControl('',),
-     QAniosPago: new FormControl('',),
-     QDias: new FormControl('',),
-     QPeriodosGracia: new FormControl('',),
-     TipoTasaIsEfectiva: new FormControl('',)*/
+
 
     });
   }
+
+  onResize(event :any) {
+    this.breakpoint = (event.target.innerWidth <= 1120) ? 1 : 2;
+  }
+
 
   changePag(n : number){
     this.pag=n
