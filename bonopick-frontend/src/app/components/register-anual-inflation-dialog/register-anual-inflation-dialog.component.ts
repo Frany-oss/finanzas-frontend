@@ -24,8 +24,20 @@ export class RegisterAnualInflationDialogComponent implements OnInit {
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<RegisterAnualInflationDialogComponent>) {
+    console.log(`${data.arr_desc}`);
+    if((data.arr_desc==='')){
     this.n= data.c_a;
     for(let i=0;i<this.n;i++) this.skills.push(new FormControl('0'));
+      console.log("hola");
+    }
+    else {
+
+      for(let i=0;i<this.data.arr_desc.length;i++) this.skills.push(new FormControl(data.arr_desc[i]));
+      for (let i=0;i<this.data.arr_desc.length;i++){
+        this.skills.controls[i].setValue(data.arr_desc[i]);
+      }
+      console.log("no ga");
+    }
   }
 
   ngOnInit(): void {

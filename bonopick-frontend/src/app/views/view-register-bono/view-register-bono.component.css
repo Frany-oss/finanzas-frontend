@@ -42,6 +42,11 @@ mat-form-field{
   color: white;
 }
 
+.mat-button.mat-button-disabled{
+
+  color: red;
+}
+
 .next{
   display: flex;
   justify-content: center;
