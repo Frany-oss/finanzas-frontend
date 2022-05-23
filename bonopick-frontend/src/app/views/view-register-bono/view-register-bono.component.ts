@@ -7,7 +7,7 @@ import {
 import {Bono} from "../../entities/bono-entity";
 import {newArray} from "@angular/compiler/src/util";
 import {BonoService} from "../../services/bono.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
@@ -28,9 +28,16 @@ export class ViewRegisterBonoComponent implements OnInit {
   bonoForm: FormGroup | any
   breakpoint: number;
 
+  bonoName: any = ''
 
 
-  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router) {
+
+  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute) {
+
+    this.route.params.subscribe(params => {
+      this.bonoName = params['name']
+    });
+
     this.breakpoint=0;
     this.cant_a = 10
     this.pag = 1
@@ -60,7 +67,7 @@ export class ViewRegisterBonoComponent implements OnInit {
     this.breakpoint = (window.innerWidth <= 1120) ? 1 : 2;
 
    this.bonoForm =  new FormGroup({
-      Nombre: new FormControl('', [Validators.required]),
+/*      Nombre: new FormControl('', [Validators.required]),*/
       DEmision: new FormControl('', [Validators.required]),
       MValorNominal: new FormControl('', [Validators.required,Validators.min(0)]),
       MValorComercial: new FormControl('', [Validators.required,Validators.min(0)]),
@@ -121,6 +128,7 @@ export class ViewRegisterBonoComponent implements OnInit {
 
   postBono(){
 
+    this.bonoData.Nombre = this.bonoName
     this.bonoData.PerColocacion = this.bonoData.PerColocacion / 100
     this.bonoData.PerTasaInteres = this.bonoData.PerTasaInteres / 100
     this.bonoData.PerTasaAnualDescuento = this.bonoData.PerTasaAnualDescuento / 100

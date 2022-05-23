@@ -1,0 +1,7 @@
+<mat-form-field  class="full-width" appearance="outline">
+  <mat-label>Nombre</mat-label>
+  <input type="text" matInput  [(ngModel)]="Nombre"   placeholder="">
+</mat-form-field>
+
+<button mat-dialog-close>Cancelar</button>
+<button routerLink="register-bono/{{Nombre}}" [mat-dialog-close]="true">RAAAAAA</button>

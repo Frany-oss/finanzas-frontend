@@ -34,6 +34,7 @@ import {MatSortModule} from "@angular/material/sort";
 import { RegisterAnualInflationDialogComponent } from './components/register-anual-inflation-dialog/register-anual-inflation-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { RegisterBonoNameDialogComponent } from './components/register-bono-name-dialog/register-bono-name-dialog.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
     ViewHomePageComponent,
     ViewBonoHistoryPageComponent,
     RegisterAnualInflationDialogComponent,
+    RegisterBonoNameDialogComponent,
   ],
     imports: [
         BrowserModule,

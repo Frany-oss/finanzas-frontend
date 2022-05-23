@@ -55,6 +55,31 @@
         0.03,
         0.03
       ]
+    },
+    {
+      "Nombre": "aasd",
+      "DEmision": "2022-05-11T05:00:00.000Z",
+      "LInflacionAnual": [
+        0.02,
+        0.02
+      ],
+      "MValorComercial": 2343,
+      "NPeriodoCapitalTNTipo": 0,
+      "NPeriodoFrecuenciaCuponTipo": 0,
+      "PerCavali": 0.01,
+      "PerColocacion": 0.01,
+      "PerEstructuracion": 0.01,
+      "PerFlotacion": 0.01,
+      "PerImportRenta": 0.01,
+      "PerPrima": 0.01,
+      "PerTasaAnualDescuento": 0.23,
+      "PerTasaInteres": 0.12,
+      "QAniosPago": 2,
+      "QDias": 360,
+      "QPeriodosGracia": 1,
+      "TipoTasaIsEfectiva": false,
+      "MValorNominal": 2432,
+      "id": 3
     }
   ]
 }

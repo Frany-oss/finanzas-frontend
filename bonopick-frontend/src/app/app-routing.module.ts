@@ -12,7 +12,7 @@ import {
 const routes: Routes = [
   {path: '',component: ViewHomePageComponent},
   {path: 'home', component: ViewHomePageComponent},
-  {path: 'register-bono', component:ViewRegisterBonoComponent},
+  {path: 'register-bono/:name', component:ViewRegisterBonoComponent},
   {path: 'register-anual-inflation-dialog', component:RegisterAnualInflationDialogComponent},
   {path: 'bono-history', component:ViewBonoHistoryPageComponent},
   {path: 'view-bono-results/:id', component: ViewResultsPageComponent},
