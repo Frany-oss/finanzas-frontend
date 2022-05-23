@@ -73,7 +73,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
         MatPaginatorModule,
         MatSortModule,
         MatDialogModule,
-        MatGridListModule
+        MatGridListModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

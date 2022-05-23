@@ -19,27 +19,28 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class ViewRegisterBonoComponent implements OnInit {
 
   cant_a: number | any
- pag: number | any
+  pag: number | any
   validator: boolean = false
 
   bonoData: Bono | any
 
 
-bonoForm: FormGroup | any
-   breakpoint: number;
+  bonoForm: FormGroup | any
+  breakpoint: number;
 
 
 
   constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router) {
-this.breakpoint=0;
+    this.breakpoint=0;
     this.cant_a = 10
     this.pag = 1
     this.bonoData = {
+      Nombre: '',
       DEmision: '',
       LInflacionAnual: '',
       MValorComercial: '',
-      NPeriodoCapitalTNTipo: '',
-      NPeriodoFrecuenciaCuponTipo: '',
+      NPeriodoCapitalTNTipo: 0,
+      NPeriodoFrecuenciaCuponTipo: 0,
       PerCavali: '',
       PerColocacion: '',
       PerEstructuracion: '',
@@ -51,7 +52,7 @@ this.breakpoint=0;
       QAniosPago: '',
       QDias: '',
       QPeriodosGracia: '',
-      TipoTasaIsEfectiva: true,
+      TipoTasaIsEfectiva: false,
     }
   }
 
@@ -59,6 +60,7 @@ this.breakpoint=0;
     this.breakpoint = (window.innerWidth <= 1120) ? 1 : 2;
 
    this.bonoForm =  new FormGroup({
+      Nombre: new FormControl('', [Validators.required]),
       DEmision: new FormControl('', [Validators.required]),
       MValorNominal: new FormControl('', [Validators.required,Validators.min(0)]),
       MValorComercial: new FormControl('', [Validators.required,Validators.min(0)]),
@@ -127,8 +129,8 @@ this.breakpoint=0;
     this.bonoData.PerEstructuracion = this.bonoData.PerEstructuracion / 100
     this.bonoData.PerFlotacion = this.bonoData.PerFlotacion / 100
     this.bonoData.PerCavali = this.bonoData.PerCavali / 100
-this.bonoData.NPeriodoCapitalTNTipo=this.bonoData.NPeriodoCapitalTNTipo as number
-  this.bonoData.NPeriodoFrecuenciaCuponTipo=this.bonoData.NPeriodoFrecuenciaCuponTipo as number
+    this.bonoData.NPeriodoCapitalTNTipo=this.bonoData.NPeriodoCapitalTNTipo as number
+    this.bonoData.NPeriodoFrecuenciaCuponTipo=this.bonoData.NPeriodoFrecuenciaCuponTipo as number
     this.bonoData.QDias=this.bonoData.QDias as number
     for (let i=0;i<this.bonoData.LInflacionAnual.length;i++){
       this.bonoData.LInflacionAnual[i]=this.bonoData.LInflacionAnual[i]/100

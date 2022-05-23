@@ -1,1 +1,48 @@
-<button color="primary" mat-flat-button routerLink="register-bono">Calcular Bono</button>
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+<h1>Bienvenido a BonoPick!</h1>
+<h2>¿Que deseas realizar?</h2>
+
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile>
+    <div class="home-card">
+      <div class="home-card-header">
+        <div>
+          <h1>Cálcular Bono</h1>
+        </div>
+      </div>
+      <div class="home-card-content">
+        <div class="home-card-content-parts">
+          <i class="material-icons-outlined" style="font-size: 150px;">calculate</i>
+        </div>
+        <div class="home-card-content-parts">
+          <button mat-button routerLink="register-bono">Realizar Cálculo</button>
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="home-card">
+      <div class="home-card-header">
+        <div>
+          <h1>Ver bonos registrados</h1>
+        </div>
+      </div>
+      <div class="home-card-content">
+        <div class="home-card-content-parts">
+          <i class="material-icons-outlined" style="font-size: 150px;">library_books</i>
+        </div>
+        <div class="home-card-content-parts">
+          <button routerLink="bono-history" mat-button>Ver Historial</button>
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+
+
+
+

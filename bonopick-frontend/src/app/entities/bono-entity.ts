@@ -1,4 +1,5 @@
 export interface Bono {
+  Nombre: any,
   MValorNominal: any,
   MValorComercial: any,
   QAniosPago: any,

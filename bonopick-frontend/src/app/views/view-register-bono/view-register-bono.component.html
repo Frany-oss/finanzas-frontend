@@ -1,11 +1,32 @@
 <div [formGroup]="bonoForm">
+
   <div *ngIf="this.pag == 1" class="pag1">
   <h1>Ingrese los datos correspondientes:</h1>
   <h2>Datos del Bono: </h2>
 
 
+    <mat-grid-list cols="1" rowHeight="7:1">
+      <mat-grid-tile>
+        <mat-form-field  class="full-width" appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput  [(ngModel)]="bonoData.Nombre" formControlName="Nombre"   placeholder="">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+
   <mat-grid-list [cols]="breakpoint"  rowHeight="7:1" (window:resize)="onResize($event)">
 
+    <mat-grid-tile>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Tipo de Tasa de Interés</mat-label>
+        <mat-select [(ngModel)]="bonoData.TipoTasaIsEfectiva" formControlName="TipoTasaIsEfectiva">
+          <mat-option [value]=false>Nominal</mat-option>
+          <mat-option [value]=true>Efectiva</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
 
     <mat-grid-tile>
       <mat-form-field  class="full-width" appearance="outline">
@@ -105,15 +126,7 @@
       </mat-form-field>
     </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Tipo de Tasa de Interés</mat-label>
-        <mat-select [(ngModel)]="bonoData.TipoTasaIsEfectiva" formControlName="TipoTasaIsEfectiva">
-          <mat-option [value]=false>Nominal</mat-option>
-          <mat-option [value]=true>Efectiva</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-grid-tile>
+
 
   <!--  <mat-grid-tile>
       <mat-form-field class="full-width" appearance="outline">

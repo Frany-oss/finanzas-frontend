@@ -1,0 +1,52 @@
+.home-card {
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.home-card-header{
+  border-start-start-radius: 25px;
+  border-start-end-radius: 25px;
+  min-height: 40px;
+  background-color: #3c3c43 !important;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.home-card-header h1{
+
+  color: white;
+  margin-bottom: 0;
+}
+
+.home-card-content{
+  border-end-start-radius: 25px;
+  border-end-end-radius: 25px;
+  min-height: 40px;
+  background-color: #c3ee65 !important;
+
+}
+
+.home-card-content-parts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-card button{
+  border-radius: 15px;
+  background-color: #3c3c43;
+  color: white;
+  width: 75%;
+  margin-bottom: 10px;
+}
+
+.home-card i{
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+

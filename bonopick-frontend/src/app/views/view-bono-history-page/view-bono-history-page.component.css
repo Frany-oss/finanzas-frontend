@@ -1,15 +1,21 @@
 table {
   width: 100%;
+  min-width: 500px;
 }
 
-.mat-form-field {
+.mat-paginator{
+  width: 100% !important;
+  min-width: 500px !important;
+}
+
+/*.mat-form-field {
   font-size: 14px;
   width: 100%;
 }
 
 td, th {
   width: 25%;
-}
+}*/
 
 .mat-stroked-button.mat-primary{
   background-color: #ECF0FF;

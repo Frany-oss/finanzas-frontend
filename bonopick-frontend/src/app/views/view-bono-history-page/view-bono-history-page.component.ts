@@ -52,7 +52,7 @@ const NAMES: string[] = [
 
 export class ViewBonoHistoryPageComponent implements AfterViewInit  {
 
-  displayedColumns: string[] = ['name', 'id' , 'DEmision', 'view'];
+  displayedColumns: string[] = ['Nombre', 'id' , 'DEmision', 'view'];
   dataSource: MatTableDataSource<any> | any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | any;

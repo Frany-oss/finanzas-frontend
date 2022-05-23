@@ -1,5 +1,6 @@
 table {
   width: 100%;
+  min-width: 1250px;
 }
 
 #container-main-right-buttons{
@@ -21,11 +22,11 @@ th.mat-header-cell{
 tr.mat-row{
   text-align: center;
 }
-.mat-cell{
+/*.mat-cell{
   font-size: 0.9vw;
 
 }
 .mat-header-cell{
 
   font-size: 0.7vw;
-}
+}*/
