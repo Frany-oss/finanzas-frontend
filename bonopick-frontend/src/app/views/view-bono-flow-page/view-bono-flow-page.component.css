@@ -13,3 +13,19 @@ table {
   max-width: 100%;
   overflow: auto;
 }
+
+th.mat-header-cell{
+  text-align: center;
+}
+
+tr.mat-row{
+  text-align: center;
+}
+.mat-cell{
+  font-size: 0.9vw;
+
+}
+.mat-header-cell{
+
+  font-size: 0.7vw;
+}

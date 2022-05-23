@@ -10,3 +10,23 @@ table {
 td, th {
   width: 25%;
 }
+
+.mat-stroked-button.mat-primary{
+  background-color: #ECF0FF;
+border: 1px solid #3E66FB;
+display: flex;
+  font-size: 0.8rem;
+ padding: 0rem 2rem 0rem 2rem;
+height: 1.8rem;
+  align-content: center;
+  vertical-align: center;
+  transition: 0.5s;
+}
+
+
+.mat-stroked-button.mat-primary:hover{
+
+  transition: 0.5s;
+  box-shadow: 6px 6px 15px rgb(0 0 0/ 28%);
+
+}
