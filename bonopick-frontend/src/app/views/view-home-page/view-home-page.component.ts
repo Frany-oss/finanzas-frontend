@@ -10,14 +10,24 @@ import {
   styleUrls: ['./view-home-page.component.css']
 })
 export class ViewHomePageComponent implements OnInit {
-
-  constructor(public dialog: MatDialog) { }
+  breakpoint: number;
+  breakpointDos:number;
+  constructor(public dialog: MatDialog) {this.breakpoint=0;this.breakpointDos=0 }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 1063) ? 1 : 2;
+    this.breakpointDos = (window.innerWidth <= 1063) ? 2 : 1;
+  }
+
+  onResize(event :any) {
+    this.breakpoint = (event.target.innerWidth <= 1063) ? 1 : 2;
+    this.breakpointDos = (event.target.innerWidth <= 1063) ? 2 : 1;
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(RegisterBonoNameDialogComponent);
+    const dialogRef = this.dialog.open(RegisterBonoNameDialogComponent, {
+      panelClass: 'dialogInsertName'
+    });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

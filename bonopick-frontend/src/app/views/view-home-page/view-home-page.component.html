@@ -3,7 +3,7 @@
 <h1>Bienvenido a BonoPick!</h1>
 <h2>¿Que deseas realizar?</h2>
 
-<mat-grid-list cols="2" rowHeight="1:1">
+<mat-grid-list [cols]="breakpoint"  rowHeight="{{breakpointDos}}:1" (window:resize)="onResize($event)">
   <mat-grid-tile>
     <div class="home-card">
       <div class="home-card-header">

@@ -1,7 +1,20 @@
+
+
+<body>
+<div id="header"><p>Crear nuevo cálculo de Bono</p> </div>
+
+<div id="main">
 <mat-form-field  class="full-width" appearance="outline">
   <mat-label>Nombre</mat-label>
-  <input type="text" matInput  [(ngModel)]="Nombre"   placeholder="">
+  <input  type="text" required matInput  [(ngModel)]="Nombre"   placeholder="">
 </mat-form-field>
 
-<button mat-dialog-close>Cancelar</button>
-<button routerLink="register-bono/{{Nombre}}" [mat-dialog-close]="true">RAAAAAA</button>
+<div id="buttons">
+  <div id="buttons-end-flex">
+<button mat-flat-button id="button-cancel" mat-dialog-close>Cancelar</button>
+<button mat-flat-button id="button-aceptar" routerLink="register-bono/{{Nombre}}" [mat-dialog-close]="true">Aceptar</button>
+  </div>
+</div>
+</div>
+
+</body>
