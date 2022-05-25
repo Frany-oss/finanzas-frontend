@@ -75,7 +75,12 @@ flex-direction: column;
 }
 
 .full-width{
-  margin-left: 1rem;
+
   margin-top: 1rem;
   width:400px !important;
+}
+
+::ng-deep .mat-grid-tile-content{
+
+  font-size: 13px !important;
 }
