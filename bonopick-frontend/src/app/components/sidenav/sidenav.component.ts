@@ -7,11 +7,17 @@ import {MatSidenav} from "@angular/material/sidenav";
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
+
+
 export class SidenavComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!:MatSidenav;
+  isMobile: any
 
-  constructor(private observer: BreakpointObserver) { }
+  constructor(private observer: BreakpointObserver) {
+    this.isMobile = false
+  }
+
 
   ngOnInit(): void {
   }
@@ -20,12 +26,16 @@ export class SidenavComponent implements OnInit {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if (res.matches){
         this.sidenav.mode = 'side';
-        this.sidenav.open();
+        this.sidenav.close().then(r => {});
+        this.isMobile=true;
+
       }else{
         this.sidenav.mode = 'side';
-        this.sidenav.open();
+        this.sidenav.open().then(r => {});
+        this.isMobile=false;
       }
     })
   }
+
 
 }

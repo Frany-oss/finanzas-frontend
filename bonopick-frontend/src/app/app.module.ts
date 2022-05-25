@@ -35,6 +35,7 @@ import { RegisterAnualInflationDialogComponent } from './components/register-anu
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { RegisterBonoNameDialogComponent } from './components/register-bono-name-dialog/register-bono-name-dialog.component';
+import {DatePipe} from "@angular/common";
 
 
 @NgModule({
@@ -77,7 +78,7 @@ import { RegisterBonoNameDialogComponent } from './components/register-bono-name
         MatDialogModule,
         MatGridListModule,
     ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

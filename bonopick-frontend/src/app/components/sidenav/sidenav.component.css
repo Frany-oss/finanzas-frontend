@@ -49,6 +49,10 @@ mat-sidenav, mat-sidenav-content{
   padding: 16px;
 }
 
+mat-sidenav-content{
+  min-width: 350px;
+}
+
 mat-sidenav{
   background-color: #C3EE65;
   width: 200px;
@@ -90,3 +94,6 @@ button{
   margin-bottom: 1rem;
 }
 
+.menu-icon{
+
+}

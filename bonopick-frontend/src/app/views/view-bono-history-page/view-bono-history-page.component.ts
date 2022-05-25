@@ -4,6 +4,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {BonoService} from "../../services/bono.service";
 import {Bono} from "../../entities/bono-entity";
+import {DatePipe} from "@angular/common";
 
 export interface UserData {
   id: string;
@@ -58,11 +59,7 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
   @ViewChild(MatSort) sort: MatSort | any;
 
-  constructor(private bonoService: BonoService) {
-
-
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+  constructor(private bonoService: BonoService, public datepipe: DatePipe) {
 
     let bonoData: any
 
@@ -74,10 +71,17 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
     })
 
 
+
+
     // Assign the data to the data source for the table to render
 
   }
 
+  dateToString(date: any){
+    let tempDate = new Date(date)
+
+    return this.datepipe.transform(tempDate, 'yyyy-MM-dd');
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -95,17 +99,4 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
 
 }
 
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
 
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-  };
-}
