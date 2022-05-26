@@ -65,6 +65,9 @@ flex-direction: column;
     margin-bottom: 2rem;
     width: 23.9rem;
   }
+
+
+
 }
 
 .btn-next{
@@ -76,11 +79,23 @@ flex-direction: column;
 
 .full-width{
 
-  margin-top: 1rem;
+margin-top: 1rem;
   width:400px !important;
 }
 
-::ng-deep .mat-grid-tile-content{
+@media (max-width: 463px) {
 
-  font-size: 13px !important;
+  ::ng-deep .mat-grid-tile-content{
+
+    font-size: 13px !important;
+  }
+  .full-width{
+
+    min-width:400px !important;
+  }
+
+  ::ng-deep  mat-sidenav-content{
+
+    min-width: 400px !important;;
+  }
 }

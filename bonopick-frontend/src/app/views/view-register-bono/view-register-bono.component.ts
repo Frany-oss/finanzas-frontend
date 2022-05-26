@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 
 import {
@@ -24,6 +24,7 @@ export class ViewRegisterBonoComponent implements OnInit {
 
   bonoData: Bono | any
 
+window:any
 
   bonoForm: FormGroup | any
   breakpoint: number;
@@ -63,6 +64,7 @@ export class ViewRegisterBonoComponent implements OnInit {
     }
   }
 
+
   ngOnInit(): void {
     this.breakpoint = (window.innerWidth <= 1120) ? 1 : 2;
 
@@ -89,6 +91,17 @@ export class ViewRegisterBonoComponent implements OnInit {
 
 
     });
+
+    if (!localStorage.getItem('foo')) {
+      localStorage.setItem('foo', 'no reload')
+      location.reload()
+    } else {
+      localStorage.removeItem('foo')
+    }
+  }
+
+  refresh(): void {
+
   }
 
   onResize(event :any) {
@@ -149,5 +162,7 @@ export class ViewRegisterBonoComponent implements OnInit {
     });
 
   }
+
+
 
 }

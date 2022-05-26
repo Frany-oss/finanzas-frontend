@@ -4,16 +4,16 @@
 
 <div id="header"><p>Crear nuevo cálculo de Bono</p> </div>
 
-<div id="main">
+<div id="main" [formGroup]="nameForm">
 <mat-form-field  class="full-width" appearance="outline">
   <mat-label>Nombre</mat-label>
-  <input  type="text" required matInput  [(ngModel)]="Nombre"   placeholder="">
+  <input  type="text" required matInput  [(ngModel)]="Nombre" formControlName="Nombre"  placeholder="">
 </mat-form-field>
 
-<div id="buttons">
+<div id="buttons" >
   <div id="buttons-end-flex">
 <button mat-flat-button id="button-cancel" mat-dialog-close>Cancelar</button>
-<button   mat-flat-button id="button-aceptar" routerLink="register-bono/{{Nombre}}" [mat-dialog-close]="true">Aceptar</button>
+<button   mat-flat-button id="button-aceptar" routerLink="register-bono/{{Nombre}}"  [disabled]="!nameForm.valid" [mat-dialog-close]="true">Aceptar</button>
   </div>
 </div>
 </div>

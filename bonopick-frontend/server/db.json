@@ -80,6 +80,84 @@
       "TipoTasaIsEfectiva": false,
       "MValorNominal": 2432,
       "id": 3
+    },
+    {
+      "Nombre": "BonoWalthersisho",
+      "DEmision": "2022-05-15T05:00:00.000Z",
+      "LInflacionAnual": [
+        0.03,
+        0.03,
+        0.03
+      ],
+      "MValorComercial": 3200,
+      "NPeriodoCapitalTNTipo": 0,
+      "NPeriodoFrecuenciaCuponTipo": 1,
+      "PerCavali": 0.01,
+      "PerColocacion": 0.01,
+      "PerEstructuracion": 0.01,
+      "PerFlotacion": 0.01,
+      "PerImportRenta": 0.25,
+      "PerPrima": 0.01,
+      "PerTasaAnualDescuento": 0.02,
+      "PerTasaInteres": 0.03,
+      "QAniosPago": 3,
+      "QDias": 360,
+      "QPeriodosGracia": 1,
+      "TipoTasaIsEfectiva": false,
+      "MValorNominal": 3000,
+      "id": 4
+    },
+    {
+      "Nombre": "KurtzCarry",
+      "DEmision": "2022-05-11T05:00:00.000Z",
+      "LInflacionAnual": [
+        0.03,
+        0.03,
+        0.03
+      ],
+      "MValorComercial": 3050,
+      "NPeriodoCapitalTNTipo": 0,
+      "NPeriodoFrecuenciaCuponTipo": 0,
+      "PerCavali": 0.01,
+      "PerColocacion": 0.01,
+      "PerEstructuracion": 0.01,
+      "PerFlotacion": 0.01,
+      "PerImportRenta": 0.24,
+      "PerPrima": 0.01,
+      "PerTasaAnualDescuento": 0.2,
+      "PerTasaInteres": 0.24,
+      "QAniosPago": 3,
+      "QDias": 360,
+      "QPeriodosGracia": 1,
+      "TipoTasaIsEfectiva": false,
+      "MValorNominal": 3000,
+      "id": 5
+    },
+    {
+      "Nombre": "makako",
+      "DEmision": "2022-05-17T05:00:00.000Z",
+      "LInflacionAnual": [
+        0.03,
+        0.03,
+        0.03
+      ],
+      "MValorComercial": 3050,
+      "NPeriodoCapitalTNTipo": 0,
+      "NPeriodoFrecuenciaCuponTipo": 0,
+      "PerCavali": 0.01,
+      "PerColocacion": 0.01,
+      "PerEstructuracion": 0.01,
+      "PerFlotacion": 0.01,
+      "PerImportRenta": 0.25,
+      "PerPrima": 0.01,
+      "PerTasaAnualDescuento": 0.06,
+      "PerTasaInteres": 0.23,
+      "QAniosPago": 3,
+      "QDias": 360,
+      "QPeriodosGracia": 1,
+      "TipoTasaIsEfectiva": false,
+      "MValorNominal": 3000,
+      "id": 6
     }
   ]
 }

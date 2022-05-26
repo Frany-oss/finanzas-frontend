@@ -22,4 +22,5 @@ describe('RegisterBonoNameDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
