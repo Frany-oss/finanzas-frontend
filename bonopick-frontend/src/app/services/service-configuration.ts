@@ -6,7 +6,7 @@ import {HttpHeaders} from "@angular/common/http";
 })
 export class ServiceConfiguration {
 
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'http://localhost:8000/api';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

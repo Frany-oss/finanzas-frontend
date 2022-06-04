@@ -3,8 +3,9 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {BonoService} from "../../services/bono.service";
-import {Bono} from "../../entities/bono-entity";
+import {Bono, bonoDbtoBono} from "../../entities/bono-entity";
 import {DatePipe} from "@angular/common";
+import {BonoDbEntity} from "../../entities/bono-db-entity";
 
 export interface UserData {
   id: string;
@@ -64,7 +65,13 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
     let bonoData: any
 
     bonoService.getBonos().subscribe(data => {
-      bonoData = data;
+      let temparr: any = data
+      bonoData = new Array(temparr.length)
+      for (let i =0;i<temparr.length;i++){
+        bonoData[i] = bonoDbtoBono(temparr[i])
+      }
+/*
+      bonoData = data;*/
       this.dataSource = new MatTableDataSource(bonoData);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

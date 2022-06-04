@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Bono} from "../../entities/bono-entity";
+import {Bono, bonoDbtoBono} from "../../entities/bono-entity";
 import {BonoService} from "../../services/bono.service";
+import {newArray} from "@angular/compiler/src/util";
+import {BonoDbEntity} from "../../entities/bono-db-entity";
 
 @Component({
   selector: 'app-view-bono-flow-page',
@@ -25,7 +27,9 @@ export class ViewBonoFlowPageComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.bonoId = params['id']
       bonoService.getBonoById(this.bonoId).subscribe(data => {
-        this.bonoData = data;
+
+        this.bonoData = bonoDbtoBono(data);
+
         let f_e = new Date(2022, 5, 1) //DATO
 
         //CASO 1
@@ -255,8 +259,6 @@ export class ViewBonoFlowPageComponent implements OnInit {
 
     return lr;
   }
-
-
 
 }
 

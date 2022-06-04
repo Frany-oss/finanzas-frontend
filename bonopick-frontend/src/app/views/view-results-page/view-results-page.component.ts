@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {BonoService} from "../../services/bono.service";
 import {ActivatedRoute} from "@angular/router";
 import { Router } from '@angular/router';
+import {BonoDbEntity} from "../../entities/bono-db-entity";
+import {newArray} from "@angular/compiler/src/util";
+import {bonoDbtoBono} from "../../entities/bono-entity";
 
 @Component({
   selector: 'app-view-results-page',
@@ -41,7 +44,7 @@ export class ViewResultsPageComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.bonoId = params['id']
       bonoService.getBonoById(this.bonoId).subscribe(data => {
-        this.bonoData = data;
+        this.bonoData = bonoDbtoBono(data);
         let f_e = new Date(2022, 5, 1) //DATO
 
         //CASO 1

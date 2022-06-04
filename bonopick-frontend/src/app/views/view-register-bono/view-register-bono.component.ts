@@ -9,6 +9,8 @@ import {newArray} from "@angular/compiler/src/util";
 import {BonoService} from "../../services/bono.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {BonoDbEntity, bonoToBonoDb} from "../../entities/bono-db-entity";
+import {DatePipe} from "@angular/common";
 
 
 @Component({
@@ -24,16 +26,18 @@ export class ViewRegisterBonoComponent implements OnInit {
 
   bonoData: Bono | any
 
-window:any
+  window:any
 
   bonoForm: FormGroup | any
   breakpoint: number;
 
   bonoName: any = ''
 
+  testData: any
 
 
-  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute) {
+
+  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute, public datepipe: DatePipe) {
 
     this.route.params.subscribe(params => {
       this.bonoName = params['name']
@@ -62,6 +66,7 @@ window:any
       QPeriodosGracia: '',
       TipoTasaIsEfectiva: false,
     }
+
   }
 
 
@@ -156,9 +161,21 @@ window:any
     for (let i=0;i<this.bonoData.LInflacionAnual.length;i++){
       this.bonoData.LInflacionAnual[i]=this.bonoData.LInflacionAnual[i]/100
     }
-/*this.bonoData.DEmision=this.bonoData.DEmision.ToLocaleString()*/
-    this._bonoService.postBono(this.bonoData).subscribe((response: any) => {
-      this._router.navigateByUrl('/view-bono-results/'+response.id)
+    this.bonoData.DEmision = this.datepipe.transform(this.bonoData.DEmision, 'yyyy-MM-dd') + "T12:30:00Z";
+
+
+    let temp: any
+    temp = bonoToBonoDb(this.bonoData)
+
+    //MANDAR CORREO DEL USUARIO
+    temp.bonistaCorreo = "francesco@gmail.com"
+    this.testData = temp
+    console.log(temp);
+    console.log(this.bonoData);
+    console.log(JSON.stringify(temp))
+
+    this._bonoService.postBono(temp).subscribe((response: any) => {
+      this._router.navigateByUrl('/view-bono-results/'+response.bonoCorporativoId)
     });
 
   }
