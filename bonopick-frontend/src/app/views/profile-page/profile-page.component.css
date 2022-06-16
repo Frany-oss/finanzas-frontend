@@ -1,0 +1,54 @@
+p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28.13px;
+}
+
+.icono{
+  transform: scale(9);
+  /*font-size: 172px;*/
+  /*width: 172px;*/
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.left {
+  margin-right: 5rem;
+  margin-bottom: 5rem;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 3rem;
+}
+
+.card {
+  background: #57b6ff;
+  width: 350px;
+  height: 200px;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.btn {
+  background: #000;
+  color: white;
+  width: 230px;
+  height: 40px;
+}
