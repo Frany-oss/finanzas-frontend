@@ -17,7 +17,6 @@ const routes: Routes = [
   {path: 'bono-history', component:ViewBonoHistoryPageComponent},
   {path: 'view-bono-results/:id', component: ViewResultsPageComponent},
   {path: 'view-bono-results/:id/view-bono-flow', component: ViewBonoFlowPageComponent},
-
 ];
 
 @NgModule({

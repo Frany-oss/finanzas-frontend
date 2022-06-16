@@ -36,6 +36,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { RegisterBonoNameDialogComponent } from './components/register-bono-name-dialog/register-bono-name-dialog.component';
 import {DatePipe} from "@angular/common";
+import { LoginPageComponent } from './views/login-page/login-page.component';
+import { RegisterPageComponent } from './views/register-page/register-page.component';
+import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import {DatePipe} from "@angular/common";
     ViewBonoHistoryPageComponent,
     RegisterAnualInflationDialogComponent,
     RegisterBonoNameDialogComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
+    ProfilePageComponent,
   ],
     imports: [
         BrowserModule,

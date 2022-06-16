@@ -1,0 +1,31 @@
+<body [ngStyle]="{'background': '#C3EE65'}">
+  <div class="box" id="LoginGrid">
+    <div class="login-form login-grid-tile">
+      <img class="logo" src="/assets/logo.png" alt="Logo Image">
+      <h1 class="bienvenida">Bienvenido a Bonopick</h1>
+      <mat-card class="carta">
+        <mat-card-content class="aln">
+          <form class="login-form" [formGroup]="loginForm">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label>Correo</mat-label>
+              <input autocomplete="off" formControlName="email" placeholder="example@gmail.com" matInput required>
+            </mat-form-field>
+
+            <mat-form-field  class="form-field" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input autocomplete="off" formControlName="password" type="password" matInput required>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+      <button mat-button class="ingresar" type="submit" (click)="login()">INGRESAR</button>
+      <div class="to-register-page">
+        <p>¿No tienes una cuenta?</p>
+        <button class="registrate" mat-button [routerLink]="'/signup'">REGISTRATE AQUÍ</button>
+      </div>
+    </div>
+    <div class="img-right">
+      <img class="login-image" src="/assets/login-img.jpg" alt="login Image" >
+    </div>
+  </div>
+  </body>
