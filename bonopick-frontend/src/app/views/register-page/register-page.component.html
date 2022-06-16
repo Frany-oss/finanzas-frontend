@@ -1,1 +1,47 @@
-<p>register-page works!</p>
+<body>
+  <div class="box" id="LoginGrid">
+    <div class="register-form login-grid-tile">
+      <img class="logo" src="/assets/logo.png" alt="Logo Image">
+      <h1 class="bienvenida">Bienvenido a Bonopick</h1>
+      <h2>Registrate rápido y sencillo</h2>
+      <mat-card class="carta">
+        <mat-card-content>
+          <form class="register-form" [formGroup]="registerForm">
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label >Nombre Completo</mat-label>
+              <input class="w-1" formControlName="fullname" type="text" placeholder="Nombre Completo" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label >Correo</mat-label>
+              <input class="w-1" formControlName="email" type="text" placeholder="example@gmail.com" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label >Teléfono</mat-label>
+              <input class="w-1" formControlName="phone" type="number" placeholder="+51 987 654 321" matInput>
+            </mat-form-field>
+
+            <mat-form-field  class="form-field" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input formControlName="password" type="password" matInput>
+            </mat-form-field>
+
+            <mat-form-field  class="form-field" appearance="outline">
+              <mat-label>Confirmar Contraseña</mat-label>
+              <input formControlName="confirmpassword" type="password" matInput>
+            </mat-form-field>
+
+          </form>
+        </mat-card-content>
+      </mat-card>
+      <div>
+        <button mat-button class="ingresar" (click)="submitForm()">REGISTRARSE</button>
+        <button class="ingresar" mat-button [routerLink]="'/signin'" (click)="cancelButton()">CANCELAR</button>
+      </div>
+    </div>
+    <div class="img-right">
+      <img class="login-image" src="/assets/login-img.jpg" alt="login Image" >
+    </div>
+  </div>
+  </body>

@@ -1,0 +1,104 @@
+.ingresar{
+  width: 200px;
+  height: 50px;
+  background-color: black;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: white;
+}
+
+.form-field{
+  width: 100%;
+}
+
+.w-1{
+  display: flex;
+  width: 100%;
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.box{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  background-color: #C3EE65;
+}
+
+
+
+h1, button, p{
+  margin: 1rem;
+}
+
+.login-image{
+  width: 100%;
+  height: 99%;
+}
+
+.logo{
+  width: 67px;
+  height: 98px;
+  margin: 1rem;
+}
+
+.carta{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background: #57B6FF;
+  border-radius: 12px;
+}
+
+.img-right{
+  width: 80%;
+}
+
+.bienvenida{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  display: flex;
+  letter-spacing: -0.02em;
+  color: #667080;
+}
+
+@media (max-width: 950px) {
+  .img-right{
+    visibility: hidden;
+  }
+  #LoginGrid{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .login-grid-tile{
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-image{
+    width: 80vw;
+  }
+
+  .login-card {
+    width: 80vw;
+    padding: 4rem;
+  }
+
+}
