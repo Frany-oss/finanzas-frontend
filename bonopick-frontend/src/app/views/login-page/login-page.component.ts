@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
-import { User } from 'src/app/entities/user-entity';
+import { Bonista } from 'src/app/entities/bonista-entity';
 import { SessionService } from 'src/app/services/session.service';
 
 @Component({
@@ -17,19 +17,20 @@ export class LoginPageComponent implements OnInit {
     password: ['', {validators: [Validators.required, Validators.minLength(3)], updateOn: 'change'}],
   });
 
-  user!:User
+  user!:Bonista
 
   constructor(private sessionService: SessionService,public formBuilder: FormBuilder, public router: Router) {
-    this.user = {} as User;
+    this.sessionService.validateSession();
+    this.user = {} as Bonista;
   }
 
   async login(){
-    this.user.email = this.loginForm.controls['email'].value;
-    this.user.password = this.loginForm.controls['password'].value;
+    this.user.correo = this.loginForm.controls['email'].value;
+    this.user.contrasena = this.loginForm.controls['password'].value;
     this.sessionService.attemptLogin(this.user).then(
       success => {
         if (success)
-          this.router.navigateByUrl('/').then(() => {
+          this.router.navigateByUrl('/profile').then(() => {
             window.location.reload();
           });
       }

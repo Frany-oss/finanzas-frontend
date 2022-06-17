@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
-import { User } from 'src/app/entities/user-entity';
-import { UserService } from 'src/app/services/user.service';
+import { Bonista } from 'src/app/entities/bonista-entity';
+import { BonistaService } from 'src/app/services/bonista.service';
+import {SessionService} from "../../services/session.service";
 
 @Component({
   selector: 'app-register-page',
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
-  user: User = {} as User;
+  user: Bonista = {} as Bonista;
   submitted: boolean = false;
 
   registerForm: FormGroup = this.formBuilder.group({
@@ -28,17 +29,21 @@ export class RegisterPageComponent implements OnInit {
     return pass = confirmPass ? null : { notSame: true }
   }
 
-  constructor(private userService: UserService, public formBuilder: FormBuilder, public router: Router) { }
+  constructor(private userService: BonistaService, public formBuilder: FormBuilder, public router: Router, private sessionService: SessionService) {
+    this.sessionService.validateSession();
+  }
 
   ngOnInit(): void {
   }
 
+
+
   submitForm(){
     this.submitted = true;
-    this.user.fullname = this.registerForm.controls['fullname'].value;
-    this.user.email = this.registerForm.controls['email'].value;
-    this.user.phone = this.registerForm.controls['phone'].value;
-    this.user.password = this.registerForm.controls['password'].value;
+    this.user.nombre = this.registerForm.controls['fullname'].value;
+    this.user.correo = this.registerForm.controls['email'].value;
+/*    this.user.telefono = this.registerForm.controls['phone'].value;*/
+    this.user.contrasena = this.registerForm.controls['password'].value;
 
     this.addUser();
     this.clearForm();
@@ -54,7 +59,14 @@ export class RegisterPageComponent implements OnInit {
   }
 
   addUser(){
-    this.userService.postUser(this.user).subscribe((response: any) => {});
+
+    let temp = {
+      nombre: this.user.nombre,
+      correo: this.user.correo,
+      contrasena: this.user.contrasena,
+    }
+
+    this.userService.postUser(temp).subscribe((response: any) => {});
   }
 
   cancelButton(){

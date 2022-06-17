@@ -1,6 +1,8 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatSidenav} from "@angular/material/sidenav";
+import {SessionService} from "../../services/session.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sidenav',
@@ -14,7 +16,7 @@ export class SidenavComponent implements OnInit {
   sidenav!:MatSidenav;
   isMobile: any
 
-  constructor(private observer: BreakpointObserver) {
+  constructor(private observer: BreakpointObserver, private sessionService: SessionService, private router: Router) {
     this.isMobile = false
   }
 
@@ -35,6 +37,17 @@ export class SidenavComponent implements OnInit {
         this.isMobile=false;
       }
     })
+  }
+
+  logout(){
+    this.sessionService.logout()
+    window.location.reload();
+  }
+
+  validView(){
+    if (this.router.url == '/login' || this.router.url == '/signup') {
+      return false
+    } else return true
   }
 
 

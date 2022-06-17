@@ -8,10 +8,16 @@ import {ViewBonoHistoryPageComponent} from "./views/view-bono-history-page/view-
 import {
   RegisterAnualInflationDialogComponent
 } from "./components/register-anual-inflation-dialog/register-anual-inflation-dialog.component";
+import {LoginPageComponent} from "./views/login-page/login-page.component";
+import {RegisterPageComponent} from "./views/register-page/register-page.component";
+import {ProfilePageComponent} from "./views/profile-page/profile-page.component";
 
 const routes: Routes = [
   {path: '',component: ViewHomePageComponent},
   {path: 'home', component: ViewHomePageComponent},
+  {path: 'login', component: LoginPageComponent},
+  {path: 'signup', component: RegisterPageComponent},
+  {path: 'profile', component: ProfilePageComponent},
   {path: 'register-bono/:name', component:ViewRegisterBonoComponent},
   {path: 'register-anual-inflation-dialog', component:RegisterAnualInflationDialogComponent},
   {path: 'bono-history', component:ViewBonoHistoryPageComponent},

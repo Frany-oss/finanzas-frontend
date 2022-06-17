@@ -4,6 +4,7 @@ import {Bono, bonoDbtoBono} from "../../entities/bono-entity";
 import {BonoService} from "../../services/bono.service";
 import {newArray} from "@angular/compiler/src/util";
 import {BonoDbEntity} from "../../entities/bono-db-entity";
+import {SessionService} from "../../services/session.service";
 
 @Component({
   selector: 'app-view-bono-flow-page',
@@ -23,7 +24,8 @@ export class ViewBonoFlowPageComponent implements OnInit {
 
   bonoId: any;
 
-  constructor(private bonoService: BonoService, private route: ActivatedRoute) {
+  constructor(private bonoService: BonoService, private route: ActivatedRoute, private sessionService: SessionService) {
+    this.sessionService.validateLogin();
     this.route.params.subscribe(params => {
       this.bonoId = params['id']
       bonoService.getBonoById(this.bonoId).subscribe(data => {

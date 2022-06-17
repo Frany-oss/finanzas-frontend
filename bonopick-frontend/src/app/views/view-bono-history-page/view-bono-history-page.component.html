@@ -3,9 +3,10 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Name Bono" #input>
 </mat-form-field>
 
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" matSort>
 
+<div  class="mat-elevation-z8">
+
+  <table  mat-table [dataSource]="dataSource" matSort>
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
@@ -36,9 +37,14 @@
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      <td *ngIf="input.value != '' " class="mat-cell" colspan="4">No se encontraron bonos que cumplan con el filtro: {{input.value}}</td>
+      <td *ngIf="input.value == '' " class="mat-cell" colspan="4">No se encontraron bonos registrados.</td>
     </tr>
   </table>
+
+  <div style="display: flex; justify-content: center">
+    <mat-spinner  *ngIf="this.chargeData" ></mat-spinner>
+  </div>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>

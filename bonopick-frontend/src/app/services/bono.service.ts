@@ -4,6 +4,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 import {Bono} from "../entities/bono-entity";
 import {ServiceConfiguration} from "./service-configuration";
 import {BonoDbEntity} from "../entities/bono-db-entity";
+import {SessionService} from "./session.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class BonoService {
 
   private baseURL = "";
 
-  constructor(private http: HttpClient, private serviceConfiguration: ServiceConfiguration) {
+  constructor(private http: HttpClient, private serviceConfiguration: ServiceConfiguration, public sessionService: SessionService) {
     this.baseURL = serviceConfiguration.baseUrl + "/bonos";
   }
 
@@ -48,8 +49,7 @@ export class BonoService {
   }
 
   getBonos(): Observable<BonoDbEntity[]> {
-
-    return this.http.get<BonoDbEntity[]>(`${this.baseURL}/bonista/id/1`, this.serviceConfiguration.httpOptions)
+    return this.http.get<BonoDbEntity[]>(`${this.baseURL}/bonista/id/${this.sessionService.getCurrentSession().user.bonistaId}`, this.serviceConfiguration.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

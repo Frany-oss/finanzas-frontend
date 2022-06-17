@@ -6,6 +6,7 @@ import {BonoService} from "../../services/bono.service";
 import {Bono, bonoDbtoBono} from "../../entities/bono-entity";
 import {DatePipe} from "@angular/common";
 import {BonoDbEntity} from "../../entities/bono-db-entity";
+import {SessionService} from "../../services/session.service";
 
 export interface UserData {
   id: string;
@@ -57,10 +58,14 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
   displayedColumns: string[] = ['Nombre', 'id' , 'DEmision', 'view'];
   dataSource: MatTableDataSource<any> | any;
 
+  chargeData: boolean = true;
+
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
   @ViewChild(MatSort) sort: MatSort | any;
 
-  constructor(private bonoService: BonoService, public datepipe: DatePipe) {
+  constructor(private bonoService: BonoService, public datepipe: DatePipe, private sessionService: SessionService) {
+
+    this.sessionService.validateLogin();
 
     let bonoData: any
 
@@ -75,6 +80,10 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
       this.dataSource = new MatTableDataSource(bonoData);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+
+      this.chargeData = false;
+
+
     })
 
 

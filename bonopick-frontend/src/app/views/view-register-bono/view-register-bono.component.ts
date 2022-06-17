@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {BonoDbEntity, bonoToBonoDb} from "../../entities/bono-db-entity";
 import {DatePipe} from "@angular/common";
+import {SessionService} from "../../services/session.service";
 
 
 @Component({
@@ -37,7 +38,9 @@ export class ViewRegisterBonoComponent implements OnInit {
 
 
 
-  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute, public datepipe: DatePipe) {
+  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute, public datepipe: DatePipe, private sessionService: SessionService) {
+
+    this.sessionService.validateLogin();
 
     this.route.params.subscribe(params => {
       this.bonoName = params['name']
@@ -168,7 +171,9 @@ export class ViewRegisterBonoComponent implements OnInit {
     temp = bonoToBonoDb(this.bonoData)
 
     //MANDAR CORREO DEL USUARIO
-    temp.bonistaCorreo = "francesco@gmail.com"
+    temp.bonistaCorreo = this.sessionService.getCurrentSession().user.correo
+
+
     this.testData = temp
     console.log(temp);
     console.log(this.bonoData);

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {BonoDbEntity} from "../../entities/bono-db-entity";
 import {newArray} from "@angular/compiler/src/util";
 import {bonoDbtoBono} from "../../entities/bono-entity";
+import {SessionService} from "../../services/session.service";
 
 @Component({
   selector: 'app-view-results-page',
@@ -40,7 +41,10 @@ export class ViewResultsPageComponent implements OnInit {
   tcea_emisor_escudo: any;
   trea_bonista: any;
 
-  constructor(private bonoService: BonoService, private route: ActivatedRoute, private router: Router) {
+  constructor(private bonoService: BonoService, private route: ActivatedRoute, private router: Router, private sessionService: SessionService) {
+
+    this.sessionService.validateLogin();
+
     this.route.params.subscribe(params => {
       this.bonoId = params['id']
       bonoService.getBonoById(this.bonoId).subscribe(data => {
