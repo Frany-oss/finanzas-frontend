@@ -11,6 +11,7 @@ import {
 import {LoginPageComponent} from "./views/login-page/login-page.component";
 import {RegisterPageComponent} from "./views/register-page/register-page.component";
 import {ProfilePageComponent} from "./views/profile-page/profile-page.component";
+import {EditProfilePageComponent} from "./views/edit-profile-page/edit-profile-page.component";
 
 const routes: Routes = [
   {path: '',component: ViewHomePageComponent},
@@ -18,11 +19,13 @@ const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'signup', component: RegisterPageComponent},
   {path: 'profile', component: ProfilePageComponent},
+  {path: 'profile-edit', component: EditProfilePageComponent},
   {path: 'register-bono/:name', component:ViewRegisterBonoComponent},
   {path: 'register-anual-inflation-dialog', component:RegisterAnualInflationDialogComponent},
   {path: 'bono-history', component:ViewBonoHistoryPageComponent},
   {path: 'view-bono-results/:id', component: ViewResultsPageComponent},
   {path: 'view-bono-results/:id/view-bono-flow', component: ViewBonoFlowPageComponent},
+
 ];
 
 @NgModule({

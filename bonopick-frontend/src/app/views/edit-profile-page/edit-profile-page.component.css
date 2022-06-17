@@ -1,3 +1,18 @@
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+  background-color: white !important;
+  border-radius: 5px;
+}
+
+::ng-deep mat-label{
+
+  background-color: white !important;
+  border-radius: 4px !important;
+}
+.mat-button.mat-button-disabled{
+
+  color: gray;
+}
+
 p {
   font-size: 20px;
   font-weight: 400;
@@ -38,7 +53,10 @@ p {
   border-radius: 12px;
   margin-bottom: 3rem;
 }
+::ng-deep .mat-form-field{
+  width: 100% !important;
 
+}
 .content {
   display: flex;
   justify-content: space-between;
@@ -55,15 +73,15 @@ p {
 
 @media (max-width: 898px) {
 
-  .box{
+.box{
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    align-content: center;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+align-items: center;
+  width: 100%;
+  align-content: center;
+}
 
   .left{
     padding-top: 4rem;

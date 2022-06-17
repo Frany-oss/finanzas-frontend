@@ -6,14 +6,14 @@
       <mat-card class="carta">
         <mat-card-content class="aln">
           <form class="login-form" [formGroup]="loginForm">
-            <mat-form-field class="form-field" appearance="outline">
+            <mat-form-field class="form-field"  appearance="outline">
               <mat-label>Correo</mat-label>
               <input autocomplete="off" formControlName="email" placeholder="example@gmail.com" matInput required>
             </mat-form-field>
 
             <mat-form-field  class="form-field" appearance="outline">
               <mat-label>Contraseña</mat-label>
-              <input autocomplete="off" formControlName="password" type="password" matInput required>
+              <input autocomplete="off" formControlName="password" type="password" placeholder="***********" matInput required>
             </mat-form-field>
           </form>
         </mat-card-content>

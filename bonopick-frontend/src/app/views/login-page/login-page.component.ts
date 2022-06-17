@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   async login(){
-    this.user.correo = this.loginForm.controls['email'].value;
+    this.user.correo = this.loginForm.controls['email'].value.toLowerCase();
     this.user.contrasena = this.loginForm.controls['password'].value;
     this.sessionService.attemptLogin(this.user).then(
       success => {

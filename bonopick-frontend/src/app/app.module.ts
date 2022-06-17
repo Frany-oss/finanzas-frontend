@@ -40,6 +40,7 @@ import { LoginPageComponent } from './views/login-page/login-page.component';
 import { RegisterPageComponent } from './views/register-page/register-page.component';
 import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { EditProfilePageComponent } from './views/edit-profile-page/edit-profile-page.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     LoginPageComponent,
     RegisterPageComponent,
     ProfilePageComponent,
+    EditProfilePageComponent,
   ],
   imports: [
     BrowserModule,

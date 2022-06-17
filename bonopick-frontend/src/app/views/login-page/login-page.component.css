@@ -1,3 +1,13 @@
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+  background-color: white !important;
+  border-radius: 5px;
+}
+
+::ng-deep mat-label{
+
+  background-color: white !important;
+  border-radius: 4px !important;
+}
 .ingresar{
   width: 360px;
   height: 64px;
@@ -11,6 +21,11 @@
 
 .form-field{
   width: 100%;
+}
+
+::ng-deep mat-sidenav-content{
+  padding: 0px !important;
+
 }
 
 .w-1{
@@ -87,6 +102,11 @@ h1, mat-card, button, p{
   color: #667080;
 }
 
+::ng-deep mat-sidenav-content{
+padding: 0 !important;
+}
+
+
 @media (max-width: 950px) {
   .img-right{
     visibility: hidden;
@@ -101,6 +121,7 @@ h1, mat-card, button, p{
     display: grid;
     grid-template-columns: 1fr;
   }
+
 
   .login-grid-tile{
     margin-top: 10vh;
@@ -120,6 +141,16 @@ h1, mat-card, button, p{
 
 }
 
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+  background-color: white !important;
+border-radius: 5px;
+}
+
+::ng-deep mat-label{
+
+  background-color: white !important;
+border-radius: 4px !important;
+}
 @media (max-width: 426px) {
   .ingresar{
     width: 260px;
