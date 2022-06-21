@@ -22,21 +22,7 @@ export class BonistaService {
     this.baseURL = serviceConfiguration.baseUrl + "/bonista";
   }
 
-  handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // Default error handling
-      console.log(`An error occurred: ${error.error.message} `);
-    } else {
-      // Unsuccessful Response Error Code returned from Backend
-      console.error(
-        `Backend returned code ${error.status}, body was: ${error.error}`
-      );
-    }
-    // Return Observable with Error Message to Client
-    return throwError(
-      'Something happened with request, please try again later'
-    );
-  }
+
 
   getUserByEmail(email: string, token: string) {
     let params = new URLSearchParams();
@@ -52,13 +38,17 @@ export class BonistaService {
 
     return this.http
       .get<Bonista>(`${this.baseURL}`, tempHttpOptions)
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(retry(2), catchError(this.serviceConfiguration.handleError));
+  }
+
+  updateUser(item: any): Observable<any> {
+    return this.http.put<Bonista>(`${this.baseURL}`, JSON.stringify(item), this.serviceConfiguration.httpOptions)
   }
 
   postUser(item: any): Observable<Bonista> {
     return this.http.post<Bonista>(`${this.baseURL}/signup`, JSON.stringify(item), this.serviceConfiguration.httpOptions)
       .pipe(
         retry(2),
-        catchError(this.handleError));
+        catchError(this.serviceConfiguration.handleError));
   }
 }

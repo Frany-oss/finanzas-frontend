@@ -1,12 +1,13 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {BonoService} from "../../services/bono.service";
-import {Bono, bonoDbtoBono} from "../../entities/bono-entity";
+import {bonoDbtoBono} from "../../entities/bono-entity";
 import {DatePipe} from "@angular/common";
-import {BonoDbEntity} from "../../entities/bono-db-entity";
 import {SessionService} from "../../services/session.service";
+import {MessageBox} from "../../components/message-box-dialog/message-box-dialog.provider";
+import {Button, Buttons} from "../../entities/common";
 
 export interface UserData {
   id: string;
@@ -55,7 +56,7 @@ const NAMES: string[] = [
 
 export class ViewBonoHistoryPageComponent implements AfterViewInit  {
 
-  displayedColumns: string[] = ['Nombre', 'id' , 'DEmision', 'view'];
+  displayedColumns: string[] = ['Nombre', 'id' , 'DEmision', 'view', 'delete'];
   dataSource: MatTableDataSource<any> | any;
 
   chargeData: boolean = true;
@@ -63,7 +64,7 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
   @ViewChild(MatPaginator) paginator: MatPaginator | any;
   @ViewChild(MatSort) sort: MatSort | any;
 
-  constructor(private bonoService: BonoService, public datepipe: DatePipe, private sessionService: SessionService) {
+  constructor(private bonoService: BonoService, public datepipe: DatePipe, private sessionService: SessionService, private mb: MessageBox) {
 
     this.sessionService.validateLogin();
 
@@ -91,6 +92,21 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
 
     // Assign the data to the data source for the table to render
 
+  }
+
+  deleteBono(id: number){
+
+    let dialog = this.mb.show('Alerta','¿Estas seguro de elimiar este bono?', Buttons.YesNo);
+
+    dialog.dialogResult$.subscribe(result=>{
+
+      if(result == Button.Yes){
+        this.bonoService.deleteBono(id).subscribe(data => {
+          window.location.reload()
+      });
+
+      }
+    });
   }
 
   dateToString(date: any){

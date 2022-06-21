@@ -41,6 +41,8 @@ import { RegisterPageComponent } from './views/register-page/register-page.compo
 import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { EditProfilePageComponent } from './views/edit-profile-page/edit-profile-page.component';
+import {MessageBoxDialogComponent} from "./components/message-box-dialog/message-box-dialog.component";
+import {MessageBox} from "./components/message-box-dialog/message-box-dialog.provider";
 
 
 @NgModule({
@@ -58,6 +60,7 @@ import { EditProfilePageComponent } from './views/edit-profile-page/edit-profile
     RegisterPageComponent,
     ProfilePageComponent,
     EditProfilePageComponent,
+    MessageBoxDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,7 @@ import { EditProfilePageComponent } from './views/edit-profile-page/edit-profile
     MatGridListModule,
     MatProgressSpinnerModule,
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, MessageBox],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

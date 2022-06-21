@@ -13,17 +13,17 @@
           <form class="login-form" [formGroup]="editForm1">
             <mat-form-field class="form-field"  appearance="outline">
               <mat-label>Nombre completo</mat-label>
-              <input autocomplete="off" formControlName="fullname" placeholder="example@gmail.com" matInput required>
+              <input autocomplete="off" formControlName="fullname" matInput required>
             </mat-form-field>
 
             <mat-form-field  class="form-field" appearance="outline">
               <mat-label>Teléfono</mat-label>
-              <input autocomplete="off" formControlName="phone" type="text" maxlength="9" placeholder="+51 987 654 321" matInput required>
+              <input autocomplete="off" formControlName="phone" type="text" maxlength="9" matInput required>
             </mat-form-field>
           </form>
 
         </mat-card-content>
-      <button [disabled]="!editForm1.valid" mat-button class="btn" > Actualizar Datos</button>
+      <button [disabled]="!editForm1.valid" (click)="submitUpdateDataForm()" mat-button class="btn" > Actualizar Datos</button>
 
     </mat-card>
 
@@ -49,7 +49,7 @@
           </form>
 
         </mat-card-content>
-        <button [disabled]="!editForm2.valid" mat-button class="btn" > Actualizar Contraseña</button>
+        <button [disabled]="!editForm2.valid" (click)="submitUpdatePasswordForm()" mat-button class="btn" > Actualizar Contraseña</button>
 
       </mat-card>
 

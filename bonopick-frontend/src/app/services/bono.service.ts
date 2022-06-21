@@ -33,12 +33,17 @@ export class BonoService {
   }
 
   getBonoById(id: number): Observable<BonoDbEntity> {
-
     return this.http.get<BonoDbEntity>(`${this.baseURL}/id/${id}`, this.serviceConfiguration.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
+  }
 
+  deleteBono(id: number): Observable<BonoDbEntity> {
+    return this.http.delete<BonoDbEntity>(`${this.baseURL}/${id}`, this.serviceConfiguration.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
   }
 
   postBono(item: any): Observable<BonoDbEntity> {

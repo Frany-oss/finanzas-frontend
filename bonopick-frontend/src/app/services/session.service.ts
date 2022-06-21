@@ -4,7 +4,7 @@ import {Session} from "../entities/session-entity";
 import { BonistaService } from './bonista.service';
 import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {ServiceConfiguration} from "./service-configuration";
-import { retry } from 'rxjs';
+import {catchError, retry} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -76,13 +76,21 @@ export class SessionService {
     );
 
     let newSessionString = localStorage.getItem("currentSession");
-    console.log("entree")
+
     if (newSessionString != null){
-      console.log("entree")
+
       await this.router.navigateByUrl('/profile')
       return true;
     }else{
       return false;
     }
   }
+
+  validPassword(item:any){
+
+    return this.http.post<any>(`${this.baseURL}/bonista/login`, JSON.stringify(item), this.serviceConfiguration.httpOptions).pipe(
+      retry(2),
+      catchError(this.serviceConfiguration.handleError));
+  }
+
 }
