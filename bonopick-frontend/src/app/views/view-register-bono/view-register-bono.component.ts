@@ -36,12 +36,12 @@ export class ViewRegisterBonoComponent implements OnInit {
 
   testData: any
 
-
+viewSpinner: boolean
 
   constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute, public datepipe: DatePipe, private sessionService: SessionService) {
 
     this.sessionService.validateLogin();
-
+this.viewSpinner=false;
     this.route.params.subscribe(params => {
       this.bonoName = params['name']
     });
@@ -182,7 +182,7 @@ export class ViewRegisterBonoComponent implements OnInit {
     this._bonoService.postBono(temp).subscribe((response: any) => {
       this._router.navigateByUrl('/view-bono-results/'+response.bonoCorporativoId)
     });
-
+    this.viewSpinner=true;
   }
 
 

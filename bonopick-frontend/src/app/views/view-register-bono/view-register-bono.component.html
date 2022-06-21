@@ -1,4 +1,8 @@
-<div [formGroup]="bonoForm">
+<div *ngIf="this.viewSpinner" style="display: flex; justify-content: center;align-items: center;height: 100vh;width: 100%;">
+  <mat-spinner  ></mat-spinner>
+</div>
+
+<div [formGroup]="bonoForm" *ngIf="!this.viewSpinner" >
 
   <div *ngIf="this.pag == 1" class="pag1">
   <h1>Ingrese los datos correspondientes:</h1>
