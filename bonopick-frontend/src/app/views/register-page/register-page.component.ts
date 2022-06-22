@@ -5,6 +5,8 @@ import { Bonista } from 'src/app/entities/bonista-entity';
 import { BonistaService } from 'src/app/services/bonista.service';
 import {SessionService} from "../../services/session.service";
 import {CustomValidators} from "../../providers/CustomValidartors";
+import {Buttons} from "../../entities/common";
+import {MessageBox} from "../../components/message-box-dialog/message-box-dialog.provider";
 
 @Component({
   selector: 'app-register-page',
@@ -25,7 +27,7 @@ export class RegisterPageComponent implements OnInit {
 
 
 
-  constructor(private userService: BonistaService, public formBuilder: FormBuilder, public router: Router, private sessionService: SessionService) {
+  constructor(private userService: BonistaService, public formBuilder: FormBuilder, public router: Router, private sessionService: SessionService, private mb: MessageBox) {
     this.sessionService.validateSession();
   }
 
@@ -63,7 +65,13 @@ export class RegisterPageComponent implements OnInit {
       telefono:this.user.telefono
     }
 
-    this.userService.postUser(temp).subscribe((response: any) => {});
+    this.userService.postUser(temp).toPromise().then(x=>{
+      this.router.navigateByUrl("/login")
+    }).catch(x=>{
+      let dialog = this.mb.show('Error al registrar','El correo introducido ya se encuentra registrado.', Buttons.Ok);
+      dialog.dialogResult$.subscribe(result=>{
+      });
+    })
   }
 
   cancelButton(){
