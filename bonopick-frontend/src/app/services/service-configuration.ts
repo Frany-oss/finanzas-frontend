@@ -7,7 +7,9 @@ import {throwError} from "rxjs";
 })
 export class ServiceConfiguration {
 
-  baseUrl: string = 'http://localhost:8000/api';
+  /*baseUrl: string = 'http://localhost:8000/api';*/
+  baseUrl: string = 'https://finance-backend-upc.herokuapp.com/api';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
