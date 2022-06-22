@@ -10,3 +10,5 @@ import {Router} from "@angular/router";
 export class AppComponent {
   title = 'bonopick-frontend';
 }
+
+//Confirmation for app deployment
