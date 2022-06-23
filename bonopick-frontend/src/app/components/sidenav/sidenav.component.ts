@@ -25,17 +25,19 @@ export class SidenavComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
-      if (res.matches){
-        this.sidenav.mode = 'side';
-        this.sidenav.close().then(r => {});
-        this.isMobile=true;
+    setTimeout(()=>{
+      this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
+        if (res.matches){
+          this.sidenav.mode = 'side';
+          this.sidenav.close().then(r => {});
+          this.isMobile=true;
 
-      }else{
-        this.sidenav.mode = 'side';
-        this.sidenav.open().then(r => {});
-        this.isMobile=false;
-      }
+        }else{
+          this.sidenav.mode = 'side';
+          this.sidenav.open().then(r => {});
+          this.isMobile=false;
+        }
+      })
     })
   }
 
