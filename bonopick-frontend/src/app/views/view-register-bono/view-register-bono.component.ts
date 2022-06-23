@@ -12,6 +12,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {BonoDbEntity, bonoToBonoDb} from "../../entities/bono-db-entity";
 import {DatePipe} from "@angular/common";
 import {SessionService} from "../../services/session.service";
+import {Buttons} from "../../entities/common";
+import {MessageBox} from "../../components/message-box-dialog/message-box-dialog.provider";
 
 
 @Component({
@@ -38,7 +40,7 @@ export class ViewRegisterBonoComponent implements OnInit {
 
 viewSpinner: boolean
 
-  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute, public datepipe: DatePipe, private sessionService: SessionService) {
+  constructor(public dialog: MatDialog, private _bonoService: BonoService,private _router: Router,private route: ActivatedRoute, public datepipe: DatePipe, private sessionService: SessionService,  private mb: MessageBox) {
 
     this.sessionService.validateLogin();
 this.viewSpinner=false;
@@ -125,7 +127,7 @@ this.viewSpinner=false;
     const dialogRef = this.dialog.open(RegisterAnualInflationDialogComponent, {
       data:{
         c_a: this.bonoData.QAniosPago,
-        arr_desc:this.bonoData.LInflacionAnual
+        arr_desc: this.bonoData.LInflacionAnual
       }
     });
 
@@ -148,6 +150,12 @@ this.viewSpinner=false;
   }
 
   setInfList(){
+
+    let dialog = this.mb.show('Información','Al cambiar la cantidad de años, la inflacion anual sera por defecto 0. Si ya habia personalizado estos valores, debe volverlo a hacer.', Buttons.Ok);
+    dialog.dialogResult$.subscribe(result=>{
+    });
+
+
     this.bonoData.LInflacionAnual = new Array(this.bonoData.QAniosPago)
     for (let i=0;i < this.bonoData.QAniosPago;i++){
       this.bonoData.LInflacionAnual[i] = 0;
