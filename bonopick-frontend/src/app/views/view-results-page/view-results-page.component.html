@@ -36,7 +36,7 @@
           <p>{{this.frecuencia_cupon}}</p>
         </div>
 
-        <div *ngIf="!bonoData.TipoTasaIsEfectiva" class="resultados">
+        <div *ngIf="!validIsEfectiva()" class="resultados">
           <p>Días Capitalización:</p>
           <p>{{this.dias_capitalizacion}}</p>
         </div>
