@@ -20,7 +20,7 @@ export class ViewResultsPageComponent implements OnInit {
 
   bonoId: any
   bonoData: any
-  isEfectiva: Boolean = false
+  isEfectiva: boolean = false
 
   precio_actual: any;
   utilidad_perdida: any;
@@ -61,6 +61,15 @@ export class ViewResultsPageComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  validIsEfectiva(){
+    try{
+      if (this.bonoData.TipoTasaIsEfectiva) return true
+      else return true
+    } catch (e){
+      return false
+    }
   }
 
   TIR(l: any) {
