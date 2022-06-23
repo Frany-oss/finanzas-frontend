@@ -94,6 +94,13 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
 
   }
 
+  ngAfterViewInit() {
+/*    setTimeout(()=> {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })*/
+  }
+
   deleteBono(id: number){
 
     let dialog = this.mb.show('Alerta','¿Estas seguro de elimiar este bono?', Buttons.YesNo);
@@ -115,10 +122,7 @@ export class ViewBonoHistoryPageComponent implements AfterViewInit  {
     return this.datepipe.transform(tempDate, 'yyyy-MM-dd');
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

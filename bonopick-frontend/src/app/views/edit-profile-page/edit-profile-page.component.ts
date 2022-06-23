@@ -87,16 +87,16 @@ export class EditProfilePageComponent implements OnInit {
     this.sessionService.validPassword(validator).toPromise().then(x=> {
       let dialog = this.mb.show('Alerta','Para guardar y aplicar los cambios realizados es necesario que vuelva a loguearse. ¿Desea continuar?', Buttons.YesNo);
 
-      dialog.dialogResult$.subscribe(result=>{
+      dialog.dialogResult$.subscribe(async result => {
 
-        if(result == Button.Yes) {
+        if (result == Button.Yes) {
           this.submitted2 = true;
           let newpassword = this.editForm2.controls['newPassword'].value;
           let data = {
             bonistaId: this.user.bonistaId,
             contrasena: newpassword,
           }
-          this.sendData(data);
+          await this.sendData(data);
         }
       });
     }).catch(x=> {
@@ -118,8 +118,8 @@ export class EditProfilePageComponent implements OnInit {
 
   }
 
-  sendData(data: any){
-    this.bonistaService.updateUser(data).subscribe(data=> console.log(data));
+  async sendData(data: any){
+    await this.bonistaService.updateUser(data).subscribe(data=> console.log(data));
     this.sessionService.logout();
     window.location.reload();
   }
