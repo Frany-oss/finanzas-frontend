@@ -73,7 +73,7 @@
       <div class="full-width doble-mat" >
         <mat-form-field appearance="outline">
           <mat-label>N° de Años</mat-label>
-          <input type="number" matInput [(ngModel)]="bonoData.QAniosPago"  formControlName="QAniosPago" placeholder="">
+          <input type="number" matInput [(ngModel)]="bonoData.QAniosPago" (change)="setInfList()" formControlName="QAniosPago" placeholder="">
         </mat-form-field>
         <button mat-button  (click)="openDialog()" class="btn">Inflación Anual</button>
       </div>
