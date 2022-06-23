@@ -147,6 +147,13 @@ this.viewSpinner=false;
     });
   }
 
+  setInfList(){
+    this.bonoData.LInflacionAnual = new Array(this.bonoData.QAniosPago)
+    for (let i=0;i < this.bonoData.QAniosPago;i++){
+      this.bonoData.LInflacionAnual[i] = 0;
+    }
+  }
+
   postBono(){
 
     this.bonoData.Nombre = this.bonoName
