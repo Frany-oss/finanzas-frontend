@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 export class SidenavComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!:MatSidenav;
-  isMobile: any
+  isMobile: boolean = false
 
   constructor(private observer: BreakpointObserver, private sessionService: SessionService, private router: Router) {
     this.isMobile = false
@@ -28,14 +28,21 @@ export class SidenavComponent implements OnInit {
     setTimeout(()=>{
       this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
         if (res.matches){
-          this.sidenav.mode = 'side';
-          this.sidenav.close().then(r => {});
-          this.isMobile=true;
+/*          console.log("rata")
+          console.log(this.sidenav.mode.valueOf())*/
+          if(typeof this.sidenav != undefined){
+            this.sidenav.mode = 'side';
+            this.sidenav.close().then(() => {});
+            this.isMobile=true;
+          }
+
 
         }else{
-          this.sidenav.mode = 'side';
-          this.sidenav.open().then(r => {});
-          this.isMobile=false;
+          if(typeof this.sidenav != undefined){
+            this.sidenav.mode = 'side';
+            this.sidenav.open().then(() => {});
+            this.isMobile=false;
+          }
         }
       })
     })
@@ -47,9 +54,7 @@ export class SidenavComponent implements OnInit {
   }
 
   validView(){
-    if (this.router.url == '/login' || this.router.url == '/signup') {
-      return false
-    } else return true
+    return !(this.router.url == '/login' || this.router.url == '/signup');
   }
 
 
