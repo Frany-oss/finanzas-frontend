@@ -56,9 +56,9 @@ export class EditProfilePageComponent implements OnInit {
 
     let dialog = this.mb.show('Alerta','Para guardar y aplicar los cambios es necesario que vuelva a loguearse. ¿Desea continuar?', Buttons.YesNo);
 
-    dialog.dialogResult$.subscribe(result=>{
+    dialog.dialogResult$.subscribe(async result => {
 
-      if(result == Button.Yes) {
+      if (result == Button.Yes) {
         this.submitted1 = true;
         this.user.nombre = this.editForm1.controls['fullname'].value;
         this.user.telefono = this.editForm1.controls['phone'].value;
@@ -68,9 +68,9 @@ export class EditProfilePageComponent implements OnInit {
           telefono: this.user.telefono
         }
 
-        this.sendData(data);
+        await this.sendData(data);
       }
-        });
+    });
 
       }
 
@@ -119,9 +119,11 @@ export class EditProfilePageComponent implements OnInit {
   }
 
   async sendData(data: any){
-    await this.bonistaService.updateUser(data).subscribe(data=> console.log(data));
-    this.sessionService.logout();
-    window.location.reload();
+    await this.bonistaService.updateUser(data).subscribe(data=> {
+      this.sessionService.logout();
+      window.location.reload();
+    });
+
   }
 
 }
