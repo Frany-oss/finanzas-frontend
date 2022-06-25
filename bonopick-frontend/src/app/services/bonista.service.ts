@@ -43,6 +43,9 @@ export class BonistaService {
 
   updateUser(item: any): Observable<any> {
     return this.http.put<Bonista>(`${this.baseURL}`, JSON.stringify(item), this.serviceConfiguration.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.serviceConfiguration.handleError));
   }
 
   postUser(item: any): Observable<Bonista> {
