@@ -66,7 +66,7 @@ export class ViewResultsPageComponent implements OnInit {
   validIsEfectiva(){
     try{
       if (this.bonoData.TipoTasaIsEfectiva) return true
-      else return true
+      else return false
     } catch (e){
       return false
     }
