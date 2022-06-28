@@ -44,7 +44,7 @@ mat-form-field{
 
 .mat-button.mat-button-disabled{
 
-  color: red;
+  color: gray;
 }
 
 .next{

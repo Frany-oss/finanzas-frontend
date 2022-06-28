@@ -43,6 +43,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { EditProfilePageComponent } from './views/edit-profile-page/edit-profile-page.component';
 import {MessageBoxDialogComponent} from "./components/message-box-dialog/message-box-dialog.component";
 import {MessageBox} from "./components/message-box-dialog/message-box-dialog.provider";
+import { ViewUserGuidePageComponent } from './views/view-user-guide-page/view-user-guide-page.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import {MessageBox} from "./components/message-box-dialog/message-box-dialog.pro
     RegisterPageComponent,
     ProfilePageComponent,
     EditProfilePageComponent,
-    MessageBoxDialogComponent
+    MessageBoxDialogComponent,
+    ViewUserGuidePageComponent
   ],
   imports: [
     BrowserModule,

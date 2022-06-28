@@ -8,9 +8,10 @@
   background-color: white !important;
   border-radius: 4px !important;
 }
-.mat-button.mat-button-disabled{
 
+.mat-button.mat-button-disabled{
   color: gray;
+  opacity: 100;
 }
 
 p {
@@ -49,7 +50,7 @@ p {
 .card {
   background: #57b6ff;
   width: 350px;
-  height: 200px;
+  height: auto;
   border-radius: 12px;
   margin-bottom: 3rem;
 }
@@ -61,11 +62,11 @@ p {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
 }
 
 .btn {
-  background: #000;
+  background: black;
   color: white;
   width: 230px;
   height: 40px;
