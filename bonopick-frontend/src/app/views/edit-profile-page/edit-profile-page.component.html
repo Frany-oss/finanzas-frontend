@@ -23,6 +23,7 @@
           </form>
 
         </mat-card-content>
+
       <button [disabled]="!editForm1.valid" (click)="submitUpdateDataForm()" mat-button class="btn" > Actualizar Datos</button>
 
     </mat-card>
@@ -53,7 +54,14 @@
 
       </mat-card>
 
+      <div  style="display: flex; justify-content: center;" >
+        <button mat-button  routerLink="/profile"  class="btn"> Volver</button>
+      </div>
+
     </mat-grid-list>
   </div>
 
+
+
 </div>
+

@@ -12,10 +12,12 @@ import {LoginPageComponent} from "./views/login-page/login-page.component";
 import {RegisterPageComponent} from "./views/register-page/register-page.component";
 import {ProfilePageComponent} from "./views/profile-page/profile-page.component";
 import {EditProfilePageComponent} from "./views/edit-profile-page/edit-profile-page.component";
+import {ViewUserGuidePageComponent} from "./views/view-user-guide-page/view-user-guide-page.component";
 
 const routes: Routes = [
   {path: '',component: ViewHomePageComponent},
   {path: 'home', component: ViewHomePageComponent},
+  {path: 'user-guide', component: ViewUserGuidePageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'signup', component: RegisterPageComponent},
   {path: 'profile', component: ProfilePageComponent},
