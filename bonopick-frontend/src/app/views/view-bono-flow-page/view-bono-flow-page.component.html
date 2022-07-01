@@ -79,20 +79,20 @@
       <td [ngStyle]="{color:element.flujo_bonista<0?'red':'blue'}" mat-cell *matCellDef="let element"> {{element.flujo_bonista|number:'2.2-2'}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="flujo_actual">
-      <th style="color: blue;font-weight: bold;"mat-header-cell *matHeaderCellDef> Flujo Actual </th>
-      <td [ngStyle]="{color:element.flujo_actual<0?'red':'blue'}" mat-cell *matCellDef="let element"> {{element.flujo_actual|number:'2.2-2'}} </td>
-    </ng-container>
+<!--    <ng-container matColumnDef="flujo_actual">-->
+<!--      <th style="color: blue;font-weight: bold;"mat-header-cell *matHeaderCellDef> Flujo Actual </th>-->
+<!--      <td [ngStyle]="{color:element.flujo_actual<0?'red':'blue'}" mat-cell *matCellDef="let element"> {{element.flujo_actual|number:'2.2-2'}} </td>-->
+<!--    </ng-container>-->
 
-    <ng-container matColumnDef="flujo_actual_plazo">
-      <th style="color: blue;font-weight: bold;" mat-header-cell *matHeaderCellDef> Flujo AxP </th>
-      <td  [ngStyle]="{color:element.flujo_actual_plazo<0?'red':'blue'}" mat-cell *matCellDef="let element"> {{element.flujo_actual_plazo|number:'2.2-2'}} </td>
-    </ng-container>
+<!--    <ng-container matColumnDef="flujo_actual_plazo">-->
+<!--      <th style="color: blue;font-weight: bold;" mat-header-cell *matHeaderCellDef> Flujo AxP </th>-->
+<!--      <td  [ngStyle]="{color:element.flujo_actual_plazo<0?'red':'blue'}" mat-cell *matCellDef="let element"> {{element.flujo_actual_plazo|number:'2.2-2'}} </td>-->
+<!--    </ng-container>-->
 
-    <ng-container matColumnDef="factor_convexidad">
-      <th style="color: blue;font-weight: bold;" mat-header-cell *matHeaderCellDef> Factor Convexidad </th>
-      <td [ngStyle]="{color:element.factor_convexidad<0?'red':'blue'}" mat-cell *matCellDef="let element"> {{element.factor_convexidad|number:'2.2-2'}} </td>
-    </ng-container>
+<!--    <ng-container matColumnDef="factor_convexidad">-->
+<!--      <th style="color: blue;font-weight: bold;" mat-header-cell *matHeaderCellDef> Factor Convexidad </th>-->
+<!--      <td [ngStyle]="{color:element.factor_convexidad<0?'red':'blue'}" mat-cell *matCellDef="let element"> {{element.factor_convexidad|number:'2.2-2'}} </td>-->
+<!--    </ng-container>-->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
