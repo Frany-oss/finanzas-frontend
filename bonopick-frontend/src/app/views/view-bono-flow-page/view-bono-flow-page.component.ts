@@ -16,7 +16,7 @@ export class ViewBonoFlowPageComponent implements OnInit {
 
   ELEMENT_DATA: any;
 
-  displayedColumns: string[] = ['position', 'fecha_programada', 'inflacion_periodo', 'plazo_gracia', 'bono', 'bono_indexado','cupon','cuota','amortizacion','prima','escudo','flujo_emisor','flujo_emisor_escudo','flujo_bonista','flujo_actual','flujo_actual_plazo','factor_convexidad'];
+  displayedColumns: string[] = ['position', 'fecha_programada', 'inflacion_periodo', 'plazo_gracia', 'bono', 'bono_indexado','cupon','cuota','amortizacion','prima','escudo','flujo_emisor','flujo_emisor_escudo','flujo_bonista'];
 
   dataSource: any;
 
